@@ -183,6 +183,8 @@ public partial class Chariot : Node3D
         SlapCooldownLeft -= (float)delta;
         InvulnerableTime -= (float)delta;
 
+        debugInfo += $"{head.LinearVelocity.Length():0.00}\n";
+
         // drag in the water
         foreach (var it in this.FindChildrenByType<RigidBody3D>())
         {
