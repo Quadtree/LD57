@@ -17,8 +17,8 @@ axis_lock_angular_y = true
 mass = 100.0
 gravity_scale = 0.0
 script = ExtResource("1_ipe4i")
-Speed = 5.0
-Acceleration = 2e+06
+Speed = 2.0
+Acceleration = 1000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)

@@ -13,7 +13,7 @@ public partial class PassiveFish : RigidBody3D
     {
         base._PhysicsProcess(delta);
 
-        var targetSpeed = (ToGlobal(Vector3.Forward) - GlobalPosition) * Speed;
+        var targetSpeed = (ToGlobal(new Vector3(-1, 0, 0)) - GlobalPosition) * Speed;
 
         var changeInSpeed = (targetSpeed - LinearVelocity).Normalized() * Acceleration;
 
