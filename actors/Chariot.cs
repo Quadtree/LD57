@@ -186,16 +186,16 @@ public partial class Chariot : Node3D
         debugInfo += $"{head.LinearVelocity.Length():0.00}\n";
 
         // drag in the water
-        foreach (var it in this.FindChildrenByType<RigidBody3D>())
-        {
-            it.LinearDamp = 0.0f;
+        // foreach (var it in this.FindChildrenByType<RigidBody3D>())
+        // {
+        //     it.LinearDamp = 0.0f;
 
-            var dragForce = -it.LinearVelocity * Util.Clamp(0.1f - (it.Mass / 50), 0, 1);
+        //     var dragForce = -it.LinearVelocity * Util.Clamp(0.1f - (it.Mass / 50), 0, 1);
 
-            it.ApplyCentralForce(dragForce);
+        //     it.ApplyCentralForce(dragForce);
 
-            debugInfo += $" {dragForce.Length():0.00}";
-        }
+        //     debugInfo += $" {dragForce.Length():0.00}";
+        // }
 
         GetTree().CurrentScene.FindChildByName<Label>("DebugInfo").Text = debugInfo;
     }
