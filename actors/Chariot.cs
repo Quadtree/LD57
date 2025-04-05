@@ -33,5 +33,18 @@ public partial class Chariot : Node3D
         {
             GD.Print($"mbb.Amount={mbb.Amount}");
         }
+
+        // move camera to follow head
+        var cam = this.FindChildByName<Node3D>("ChaseCameraArm");
+        var head = this.FindChildByName<Node3D>("DriverHead");
+
+        cam.GlobalPosition = cam.GlobalPosition * .99f + head.GlobalPosition * .01f;
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+
+
     }
 }
