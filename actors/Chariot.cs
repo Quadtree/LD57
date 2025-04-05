@@ -15,6 +15,8 @@ public partial class Chariot : Node3D
     [Export]
     float LeftRightRatio = 3;
 
+    RigidBody3D CurrentlyGrabbed;
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -55,6 +57,29 @@ public partial class Chariot : Node3D
         var camDest = head.GlobalPosition + head.LinearVelocity * 2f;
 
         cam.GlobalPosition = cam.GlobalPosition * .99f + camDest * .01f;
+
+
+
+        // grabbed
+        if (CurrentlyGrabbed != null)
+        {
+            var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
+            if (distToHead > 8)
+            {
+                GD.Print("Got too far away!");
+                CurrentlyGrabbed = null;
+            }
+            else
+            {
+                var cursorPosition = Picking.PickPlaneAtCursor(this, new Plane(
+                    new Vector3(0, 0, 0),
+                    new Vector3(1, 0, 0),
+                    new Vector3(0, 1, 0)
+                ));
+
+                GD.Print($"cursorPosition={cursorPosition}");
+            }
+        }
     }
 
     public override void _Process(double delta)
@@ -74,6 +99,10 @@ public partial class Chariot : Node3D
             {
                 var picked = Picking.PickObjectAtCursor(this);
                 GD.Print($"picked={picked}");
+                if (picked is RigidBody3D)
+                {
+                    CurrentlyGrabbed = (RigidBody3D)picked;
+                }
             }
         }
     }
