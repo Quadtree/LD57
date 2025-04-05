@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cngt8hlcp25fm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_t2gkd"]
+
+[node name="ThoughtBubble" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_t2gkd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8326, 0.927152, 0)
+mesh = SubResource("SphereMesh_t2gkd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26971, 2.02502, 0)
+mesh = SubResource("SphereMesh_t2gkd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.4653, 0, 0, 0, 4.80708, 0, 0, 0, 1, 2.13481, 5.24586, 0)
+mesh = SubResource("SphereMesh_t2gkd")
+
+[node name="ThoughtText" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97787, 5.35157, 0.590924)
+text = "Thinking! Thinking!
+Lorem ipsum etc"
+font_size = 96

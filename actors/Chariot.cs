@@ -109,7 +109,7 @@ public partial class Chariot : Node3D
         if (Input.IsActionPressed("decrease_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         if (mbb.Amount != oldB)
         {
-            GD.Print($"mbb.Amount={mbb.Amount}");
+            //GD.Print($"mbb.Amount={mbb.Amount}");
         }
 
         this.FindChildByName<Node3D>("DriverHeadMesh").Scale = Vector3.One * (Mathf.Pow(mbb.Amount, .333333f) / 5);
