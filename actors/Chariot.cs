@@ -39,7 +39,7 @@ public partial class Chariot : Node3D
 
             it.BodyEntered += (body) =>
             {
-                if (!myParts.Contains(body))
+                if (!myParts.Contains(body) && !(body is AggressiveFish))
                 {
                     RecentCollision = 0.1f;
 
