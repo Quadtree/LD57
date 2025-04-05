@@ -28,6 +28,11 @@ public partial class PassiveFish : RigidBody3D
             CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
         }
 
+        if (Util.RandChance((float)delta * 4))
+        {
+            CurrentTurnRate = 0;
+        }
+
         ApplyTorque(new Vector3(0, 0, CurrentTurnRate));
     }
 }
