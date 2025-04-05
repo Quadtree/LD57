@@ -190,7 +190,7 @@ public partial class Chariot : Node3D
         {
             it.LinearDamp = 0.0f;
 
-            var dragForce = it.LinearVelocity * -0.1f;
+            var dragForce = -it.LinearVelocity * Util.Clamp(0.1f - (it.Mass / 50), 0, 1);
 
             it.ApplyCentralForce(dragForce);
 
