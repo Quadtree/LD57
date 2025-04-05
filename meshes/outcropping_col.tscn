@@ -7,5 +7,7 @@ data = PackedVector3Array(1, 2.9433, -0.4165, -1, 1.9798, 2.3391, -1, 2.9433, -0
 
 [node name="outcropping" instance=ExtResource("1_bm6i0")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_on3di")

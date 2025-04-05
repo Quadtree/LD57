@@ -46,11 +46,17 @@ public partial class Chariot : Node3D
     [Export]
     public float HorsePower = 300;
 
+    float OriginalHorseMass = 0;
+    float OriginalTotalNonHorseMass = 0;
+
     public override void _Ready()
     {
         base._Ready();
 
         this.FindChildByName<Node>("DriverHead").FindChildByType<Buoyancy>().Amount = Util.Clamp(StartingMainBuoyancy, MinBuoyancy, MaxBuoyancy);
+
+        OriginalHorseMass = this.FindChildByName<RigidBody3D>("SeaHorse").Mass;
+        OriginalTotalNonHorseMass = this.FindChildrenByType<RigidBody3D>().Where(it => it.Name != "SeaHorse").Select(it => it.Mass).Sum();
 
         var myParts = this.FindChildrenByType<RigidBody3D>().ToArray();
 
@@ -108,7 +114,15 @@ public partial class Chariot : Node3D
             mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         }
 
-        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower);
+        var horseMass = this.FindChildByName<RigidBody3D>("SeaHorse").Mass;
+        var totalNonHorseMass = this.FindChildrenByType<RigidBody3D>().Where(it => it.Name != "SeaHorse").Select(it => it.Mass).Sum();
+        var horsePowerModifier = (totalNonHorseMass / OriginalHorseMass) / (OriginalTotalNonHorseMass / OriginalHorseMass);
+
+        debugInfo += $"OriginalHorseMass={OriginalHorseMass} OriginalTotalNonHorseMass={OriginalTotalNonHorseMass}\n";
+        debugInfo += $"horseMass={horseMass} totalNonHorseMass={totalNonHorseMass} \nhorsePowerModifier={horsePowerModifier}\n";
+
+        this.FindChildByName<RigidBody3D>("SeaHorse").Mass = OriginalHorseMass * horsePowerModifier;
+        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower * horsePowerModifier);
 
         if (Input.IsActionPressed("increase_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount + ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         if (Input.IsActionPressed("decrease_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
