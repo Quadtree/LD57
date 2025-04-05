@@ -13,7 +13,7 @@ height = 1.0
 [node name="AggressiveFish" instance=ExtResource("1_lo041")]
 Speed = 2.0
 DamagePerHit = 7.0
-LeashRange = 10.0
+LeashRange = 15.0
 
 [node name="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CapsuleMesh_lo041")

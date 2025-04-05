@@ -45,6 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0708, -12.3588, -0.0101366
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5939, 6.07521, 0.61256)
 
 [node name="AggressiveFish" parent="." index="9" instance=ExtResource("6_okxmn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.947, 4.37439, -0.415826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.947, -0.64763, -0.415826)
 
 [editable path="StaticBody3D/level1"]

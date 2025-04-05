@@ -27,11 +27,27 @@ public partial class PassiveFish : RigidBody3D
                 HeadForSurface = true;
             }
         };
+
+        AxisLockLinearX = true;
+        AxisLockLinearY = true;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+
+        var chariot = GetTree().CurrentScene.FindChildByType<Chariot>();
+
+        if (chariot != null && chariot.MainBodyPos.DistanceTo(GlobalPosition) < 20)
+        {
+            AxisLockLinearX = false;
+            AxisLockLinearY = false;
+        }
+
+        if (AxisLockLinearX)
+        {
+            return;
+        }
 
         var targetSpeed = (ToGlobal(new Vector3(-1, 0, 0)) - GlobalPosition) * Speed;
 
