@@ -14,6 +14,6 @@ public partial class Chariot : Node3D
         if (Input.IsActionPressed("move_up")) moveVector.Y = 1;
         if (Input.IsActionPressed("move_down")) moveVector.Y = -1;
 
-        this.
+        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * 300);
     }
 }

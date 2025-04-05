@@ -57,6 +57,10 @@ node_b = NodePath("../RearStorage")
 
 [node name="SeaHorse" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SeaHorse"]
 shape = SubResource("SphereShape3D_qacet")
@@ -70,9 +74,7 @@ node_a = NodePath("../MainBody")
 node_b = NodePath("../SeaHorse")
 linear_limit_x/upper_distance = 1.0
 linear_limit_x/lower_distance = -1.0
-linear_limit_y/upper_distance = 0.25
-linear_limit_y/lower_distance = -0.25
-linear_limit_z/upper_distance = 0.25
-linear_limit_z/lower_distance = -0.25
-angular_limit_z/upper_angle = 0.698132
-angular_limit_z/lower_angle = -0.698132
+linear_limit_y/upper_distance = 5.0
+linear_limit_y/lower_distance = -5.0
+linear_limit_z/upper_distance = 5.0
+linear_limit_z/lower_distance = -5.0
