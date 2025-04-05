@@ -11,6 +11,7 @@ size = Vector3(0.8, 0.8, 0.8)
 [node name="Grabbable" type="RigidBody3D"]
 collision_layer = 16385
 axis_lock_linear_z = true
+mass = 2.0
 script = ExtResource("1_qeuqg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

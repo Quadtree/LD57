@@ -3,6 +3,9 @@ using Godot;
 
 public partial class Grabbable : RigidBody3D
 {
+    [Export]
+    public float Buoyancy;
+
     public override void _Ready()
     {
         base._Ready();
