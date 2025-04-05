@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Godot;
 
 public partial class Chariot : Node3D
@@ -19,6 +20,27 @@ public partial class Chariot : Node3D
     public float Health = 100;
 
     RigidBody3D CurrentlyGrabbed;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        var myParts = this.FindChildrenByType<RigidBody3D>().ToArray();
+
+        foreach (var it in myParts)
+        {
+            it.ContactMonitor = true;
+            it.MaxContactsReported = 20;
+
+            it.BodyEntered += (body) =>
+            {
+                if (!myParts.Contains(body))
+                {
+                    GD.Print($"{it} has hit {body}");
+                }
+            };
+        }
+    }
 
     public override void _PhysicsProcess(double delta)
     {
