@@ -173,4 +173,6 @@ public partial class Chariot : Node3D
             }
         }
     }
+
+    public Vector3 MainBodyPos => this.FindChildByName<Node3D>("MainBody").GlobalPosition;
 }
