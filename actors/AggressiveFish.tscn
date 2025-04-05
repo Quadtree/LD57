@@ -9,6 +9,9 @@ radius = 0.3
 radius = 0.3
 
 [node name="AggressiveFish" type="RigidBody3D"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 script = ExtResource("1_n003q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

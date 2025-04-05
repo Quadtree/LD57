@@ -41,7 +41,7 @@ public partial class AggressiveFish : RigidBody3D
             }
         }
 
-        var targetSpeed = new Vector3(0,0,0);
+        var targetSpeed = new Vector3(0, 0, 0);
 
         if (chariot != null && Aggroed && LeashingTime <= 0)
         {
@@ -55,6 +55,6 @@ public partial class AggressiveFish : RigidBody3D
             }
         }
 
-        
+        ApplyForce((targetSpeed - LinearVelocity) * 100, ToGlobal(new Vector3(0, 0, 0)));
     }
 }
