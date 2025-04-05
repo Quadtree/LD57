@@ -146,7 +146,7 @@ public partial class Chariot : Node3D
         var mb = this.FindChildByName<RigidBody3D>("MainBody");
 
         var changeInVelocity = PrevVelocity.DistanceTo(mb.LinearVelocity);
-        if (changeInVelocity > 0.1f && RecentCollision > 0)
+        if (changeInVelocity > 0.2f && RecentCollision > 0)
         {
             var damage = changeInVelocity * (5f / .3f);
 
