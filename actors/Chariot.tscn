@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=7 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
 
@@ -9,6 +9,10 @@ size = Vector3(2, 1, 1)
 size = Vector3(4, 0.8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cu25"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qacet"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ssdiv"]
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
@@ -50,3 +54,25 @@ node_b = NodePath("../FrontStorage")
 [node name="FrontToRearConnection" type="Generic6DOFJoint3D" parent="."]
 node_a = NodePath("../MainBody")
 node_b = NodePath("../RearStorage")
+
+[node name="SeaHorse" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaHorse"]
+shape = SubResource("SphereShape3D_qacet")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SeaHorse"]
+mesh = SubResource("SphereMesh_ssdiv")
+
+[node name="HorseHarness" type="Generic6DOFJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
+node_a = NodePath("../MainBody")
+node_b = NodePath("../SeaHorse")
+linear_limit_x/upper_distance = 1.0
+linear_limit_x/lower_distance = -1.0
+linear_limit_y/upper_distance = 0.25
+linear_limit_y/lower_distance = -0.25
+linear_limit_z/upper_distance = 0.25
+linear_limit_z/lower_distance = -0.25
+angular_limit_z/upper_angle = 0.698132
+angular_limit_z/lower_angle = -0.698132
