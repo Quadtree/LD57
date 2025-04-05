@@ -74,6 +74,7 @@ exit_game={
 
 [physics]
 
+3d/default_linear_damp=3.0
 common/physics_interpolation=true
 
 [rendering]
