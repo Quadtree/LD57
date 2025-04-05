@@ -1,6 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=9 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ssdiv"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_5cu25"]
+radius = 0.2
+height = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qacet"]
 size = Vector3(2, 1, 1)
@@ -16,6 +23,16 @@ size = Vector3(4, 0.8, 1)
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
+
+[node name="HarnessCenterPoint" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84984, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HarnessCenterPoint"]
+shape = SubResource("SphereShape3D_ssdiv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HarnessCenterPoint"]
+transform = Transform3D(2.4355, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_5cu25")
 
 [node name="MainBody" type="RigidBody3D" parent="."]
 axis_lock_linear_z = true
@@ -71,7 +88,17 @@ mesh = SubResource("SphereMesh_ssdiv")
 [node name="HorseHarness" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
 node_a = NodePath("../SeaHorse")
-node_b = NodePath("../FrontStorage")
-linear_limit_x/upper_distance = 1.0
-linear_limit_x/lower_distance = -1.0
-angular_limit_z/enabled = false
+node_b = NodePath("../HarnessCenterPoint")
+linear_limit_x/upper_distance = 0.3
+linear_limit_x/lower_distance = -0.3
+angular_limit_z/upper_angle = 0.872665
+angular_limit_z/lower_angle = -0.872665
+
+[node name="HorseHarness2" type="Generic6DOFJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
+node_a = NodePath("../FrontStorage")
+node_b = NodePath("../HarnessCenterPoint")
+linear_limit_x/upper_distance = 0.3
+linear_limit_x/lower_distance = -0.3
+angular_limit_z/upper_angle = 0.872665
+angular_limit_z/lower_angle = -0.872665
