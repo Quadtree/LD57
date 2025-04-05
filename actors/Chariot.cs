@@ -37,14 +37,24 @@ public partial class Chariot : Node3D
 
     float SlapCooldownLeft = 0;
 
+    [Export]
+    public float InvulnerableTime = 2;
+
+    [Export]
+    public float StartingMainBuoyancy = 100;
+
     public override void _Ready()
     {
         base._Ready();
+
+        this.FindChildByName<Node>("DriverHead").FindChildByType<Buoyancy>().Amount = Util.Clamp(StartingMainBuoyancy, MinBuoyancy, MaxBuoyancy);
 
         var myParts = this.FindChildrenByType<RigidBody3D>().ToArray();
 
         foreach (var it in myParts)
         {
+            if (it.Name == "SeaHorse") continue;
+
             it.ContactMonitor = true;
             it.MaxContactsReported = 20;
 
@@ -146,7 +156,7 @@ public partial class Chariot : Node3D
         var mb = this.FindChildByName<RigidBody3D>("MainBody");
 
         var changeInVelocity = PrevVelocity.DistanceTo(mb.LinearVelocity);
-        if (changeInVelocity > 0.2f && RecentCollision > 0)
+        if (InvulnerableTime <= 0 && changeInVelocity > 0.2f && RecentCollision > 0)
         {
             var damage = changeInVelocity * (5f / .3f);
 
@@ -159,6 +169,7 @@ public partial class Chariot : Node3D
         PrevRotation = mb.Rotation.Z;
         RecentCollision -= (float)delta;
         SlapCooldownLeft -= (float)delta;
+        InvulnerableTime -= (float)delta;
     }
 
     public override void _Process(double delta)
