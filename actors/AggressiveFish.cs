@@ -27,6 +27,21 @@ public partial class AggressiveFish : RigidBody3D
 
         StartingPosition = GlobalPosition;
 
+        ContactMonitor = true;
+        MaxContactsReported = 20;
+
+        BodyEntered += (body) =>
+        {
+            if (BackOffTime > 0) return;
+
+            var chariot = body.FindParentByType<Chariot>();
+            if (chariot != null)
+            {
+                chariot.Health -= DamagePerHit;
+                BackOffTime = 3;
+            }
+        };
+
         //foreach (var it in this.FindChildrenByType<Label3D>()) it.Visible
     }
 
@@ -64,5 +79,8 @@ public partial class AggressiveFish : RigidBody3D
         ApplyForce(force, new Vector3(0, 0, 0));
 
         this.FindChildByType<Label3D>().Text = $"force={force} BackOffTime={BackOffTime} Aggroed={Aggroed}";
+
+        BackOffTime -= (float)delta;
+        LeashingTime -= (float)delta;
     }
 }
