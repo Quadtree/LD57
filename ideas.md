@@ -1,0 +1,12 @@
+- Some kind of physics-based game where you're driving a submarine
+- You're the kraken. Attack from the depths!
+- 3d exploration game where you wander through tunnels in a minisub
+- 2d game where you try to thread your diving hose into some kind of underwater wreck or something
+- Sorta like barotrauma
+
+- Where you're some kind of salvager who attaches baloons to things
+- You're a squid driving an underwater chariot. You've got to get your seahorses to go the right direction while maintaining bouyancy.
+  - How do you lose?
+    - Too much damage from shark attacks
+    - Too much collision damage (especially if the chariot flips over)
+
