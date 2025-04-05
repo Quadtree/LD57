@@ -183,6 +183,11 @@ public partial class Chariot : Node3D
     {
         base._Input(@event);
 
+        if (@event is InputEventKey)
+        {
+            if (@event.IsActionPressed("exit_game")) GetTree().Quit();
+        }
+
         if (@event is InputEventMouseButton)
         {
             if (@event.IsActionPressed("grab"))

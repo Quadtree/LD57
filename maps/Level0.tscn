@@ -32,7 +32,8 @@ transform = Transform3D(0.424445, 0, 0, 0, 0.424445, 0, 0, 0, 0.424445, -11.363,
 text = "I should really get some kelp for dinner.
 I think there's some off the cliff to the right.
 Order the seahorse to move left/right with A/D.
-Go up and down by changing buoyancy with W/S."
+Go up and down by changing buoyancy with W/S.
+Try to avoid crashing into things."
 
 [editable path="StaticBody3D/ter2"]
 [editable path="StaticBody3D/ThoughtBubble"]
