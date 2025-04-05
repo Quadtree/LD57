@@ -21,8 +21,9 @@ size = Vector3(4, 0.8, 1)
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
-BuoyancyChangeRate = 50.0
+BuoyancyChangeRate = 150.0
 MaxBuoyancy = 1000.0
+MinBuoyancy = 15.0
 
 [node name="MainBody" type="RigidBody3D" parent="."]
 axis_lock_linear_z = true
@@ -91,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DriverHead"]
 shape = SubResource("SphereShape3D_ssdiv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DriverHead"]
+[node name="DriverHeadMesh" type="MeshInstance3D" parent="DriverHead"]
 mesh = SubResource("SphereMesh_5cu25")
 skeleton = NodePath("../CollisionShape3D")
 

@@ -37,6 +37,8 @@ public partial class Chariot : Node3D
             GD.Print($"mbb.Amount={mbb.Amount}");
         }
 
+        this.FindChildByName<Node3D>("DriverHeadMesh").Scale = Vector3.One * (Mathf.Pow(mbb.Amount, .333333f) / 5);
+
         // move camera to follow head
         var cam = this.FindChildByName<Node3D>("ChaseCameraArm");
         var head = this.FindChildByName<RigidBody3D>("DriverHead");
