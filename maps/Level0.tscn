@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rn7qvk6mks7e"]
+
+[ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_12e6y"]
+
+[node name="Default" instance=ExtResource("1_12e6y")]
+
+[editable path="StaticBody3D/ter2"]
