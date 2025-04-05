@@ -19,6 +19,12 @@ public partial class Chariot : Node3D
     [Export]
     public float Health = 100;
 
+    [Export]
+    public float SlapRange = 8;
+
+    [Export]
+    public float GrabRange = 8;
+
     RigidBody3D CurrentlyGrabbed;
 
     Vector3 PrevVelocity;
@@ -110,7 +116,7 @@ public partial class Chariot : Node3D
         if (CurrentlyGrabbed != null)
         {
             var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
-            if (distToHead > 8)
+            if (distToHead > GrabRange)
             {
                 GD.Print("Got too far away!");
                 CurrentlyGrabbed = null;
@@ -156,9 +162,9 @@ public partial class Chariot : Node3D
 
     }
 
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
-        base._UnhandledInput(@event);
+        base._Input(@event);
 
         if (@event is InputEventMouseButton)
         {
@@ -166,9 +172,47 @@ public partial class Chariot : Node3D
             {
                 var picked = Picking.PickObjectAtCursor(this);
                 GD.Print($"picked={picked}");
-                if (picked is RigidBody3D)
+                if (picked is Grabbable)
                 {
-                    CurrentlyGrabbed = (RigidBody3D)picked;
+                    GD.Print("Grabbed something");
+                    CurrentlyGrabbed = (Grabbable)picked;
+                }
+                else
+                {
+                    // maybe slap a shark?
+                    var cursorPosition = Picking.PickPlaneAtCursor(this, new Plane(
+                        new Vector3(0, 0, 0),
+                        new Vector3(1, 0, 0),
+                        new Vector3(0, 1, 0)
+                    ));
+
+                    if (cursorPosition != null)
+                    {
+                        var head = this.FindChildByName<RigidBody3D>("DriverHead");
+
+                        var nearestShark = GetTree().CurrentScene.FindChildrenByType<AggressiveFish>().MinBy(it => it.GlobalPosition.DistanceTo(cursorPosition.Value));
+
+                        if (nearestShark != null)
+                        {
+                            if (nearestShark.GlobalPosition.DistanceTo(head.GlobalPosition) <= SlapRange)
+                            {
+                                GD.Print($"SLAPPED {nearestShark}");
+                                nearestShark.Slapped();
+                            }
+                            else
+                            {
+                                GD.Print("Out of SLAP range!");
+                            }
+                        }
+                        else
+                        {
+                            GD.Print("No shark to slap");
+                        }
+                    }
+                    else
+                    {
+                        GD.Print("Weird picking error?");
+                    }
                 }
             }
         }

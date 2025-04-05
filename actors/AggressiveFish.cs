@@ -88,4 +88,9 @@ public partial class AggressiveFish : RigidBody3D
 
         BackOffTime -= (float)delta;
     }
+
+    public void Slapped()
+    {
+        
+    }
 }

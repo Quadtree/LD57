@@ -18,7 +18,7 @@ script = ExtResource("1_n003q")
 Speed = 6.0
 DamagePerHit = 10.0
 AggroRange = 12.0
-LeashRange = 4.0
+LeashRange = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)

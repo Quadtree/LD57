@@ -1,4 +1,5 @@
 # TODO
+- Slapping sharks
 - Add in Kelp level, including a hostile thingy at the end (not a shark)
 - Add in gem/shark level
 - Add in cave level. make sure the player needs to back up into something
