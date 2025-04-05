@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw57o6gv6dk2t"]
+
+[ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qacet"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ssdiv"]
+size = Vector3(4, 0.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cu25"]
+
+[node name="Chariot" type="Node3D"]
+script = ExtResource("1_qacet")
+
+[node name="MainBody" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainBody"]
+shape = SubResource("BoxShape3D_qacet")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainBody"]
+mesh = SubResource("BoxMesh_ssdiv")
+
+[node name="RearStorage" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RearStorage"]
+shape = SubResource("BoxShape3D_5cu25")
+
+[node name="FrontStorage" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52014, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontStorage"]
+shape = SubResource("BoxShape3D_5cu25")
+
+[node name="FrontToMainConnection" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../MainBody")
+node_b = NodePath("../FrontStorage")
+
+[node name="FrontToRearConnection" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../MainBody")
+node_b = NodePath("../RearStorage")
