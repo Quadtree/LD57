@@ -9,6 +9,7 @@ radius = 1.0
 height = 6.0
 
 [node name="PassiveFish" type="RigidBody3D"]
+gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)
