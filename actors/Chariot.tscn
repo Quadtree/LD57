@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=11 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
+[ext_resource type="Script" uid="uid://lt22yngnw3h7" path="res://components/Storage.cs" id="2_5cu25"]
 [ext_resource type="Script" uid="uid://dkt05lsy0iog6" path="res://components/Buoyancy.cs" id="2_ssdiv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qacet"]
@@ -43,6 +44,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 mass = 3.0
+script = ExtResource("2_5cu25")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RearStorage"]
 shape = SubResource("BoxShape3D_5cu25")
