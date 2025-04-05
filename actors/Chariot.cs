@@ -43,6 +43,9 @@ public partial class Chariot : Node3D
     [Export]
     public float StartingMainBuoyancy = 100;
 
+    [Export]
+    public float HorsePower = 300;
+
     public override void _Ready()
     {
         base._Ready();
@@ -103,7 +106,7 @@ public partial class Chariot : Node3D
             mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         }
 
-        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * 300);
+        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower);
 
         if (Input.IsActionPressed("increase_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount + ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         if (Input.IsActionPressed("decrease_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
@@ -151,7 +154,10 @@ public partial class Chariot : Node3D
                 GD.Print($"cursorPosition={cursorPosition}");
                 if (cursorPosition != null)
                 {
-                    CurrentlyGrabbed.ApplyCentralForce((cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 40);
+                    var grabForce = (cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 160;
+
+                    CurrentlyGrabbed.ApplyCentralForce(grabForce);
+                    head.ApplyCentralForce(-grabForce);
                 }
             }
         }
