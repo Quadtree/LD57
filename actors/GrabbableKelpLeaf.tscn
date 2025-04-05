@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://d0toho80wwnv2" path="res://actors/Grabbable.tscn" id="1_xw1i2"]
 
 [node name="Grabbable" instance=ExtResource("1_xw1i2")]
+mass = 8.0
 InitiallyFrozen = true

@@ -60,7 +60,7 @@ public partial class Chariot : Node3D
 
             it.BodyEntered += (body) =>
             {
-                if (!myParts.Contains(body) && !(body is AggressiveFish))
+                if (!myParts.Contains(body) && !(body is AggressiveFish) && !(body is Grabbable))
                 {
                     RecentCollision = 0.1f;
 
@@ -130,6 +130,10 @@ public partial class Chariot : Node3D
 
         if (CurrentlyGrabbed != null)
         {
+            CurrentlyGrabbed.AxisLockLinearX = false;
+            CurrentlyGrabbed.AxisLockLinearY = false;
+            CurrentlyGrabbed.AxisLockAngularZ = false;
+
             var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
             if (distToHead > GrabRange)
             {
@@ -198,10 +202,6 @@ public partial class Chariot : Node3D
                 {
                     GD.Print("Grabbed something");
                     CurrentlyGrabbed = (Grabbable)picked;
-
-                    CurrentlyGrabbed.AxisLockLinearX = false;
-                    CurrentlyGrabbed.AxisLockLinearY = false;
-                    CurrentlyGrabbed.AxisLockAngularZ = false;
                 }
                 else if (SlapCooldownLeft <= 0)
                 {

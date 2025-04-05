@@ -55,6 +55,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 mass = 3.0
+script = ExtResource("2_5cu25")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FrontStorage"]
 shape = SubResource("BoxShape3D_5cu25")
