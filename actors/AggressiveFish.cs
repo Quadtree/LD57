@@ -26,6 +26,8 @@ public partial class AggressiveFish : RigidBody3D
         base._Ready();
 
         StartingPosition = GlobalPosition;
+
+        //foreach (var it in this.FindChildrenByType<Label3D>()) it.Visible
     }
 
     public override void _PhysicsProcess(double delta)
@@ -55,6 +57,12 @@ public partial class AggressiveFish : RigidBody3D
             }
         }
 
-        ApplyForce((targetSpeed - LinearVelocity) * 100, ToGlobal(new Vector3(0, 0, 0)));
+        var force = (targetSpeed - LinearVelocity) * 100;
+
+        if (force.Length() > 10_000) force = force.Normalized() * 10_000;
+
+        ApplyForce(force, new Vector3(0, 0, 0));
+
+        this.FindChildByType<Label3D>().Text = $"force={force} BackOffTime={BackOffTime} Aggroed={Aggroed}";
     }
 }
