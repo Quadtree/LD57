@@ -21,6 +21,8 @@ public partial class AggressiveFish : RigidBody3D
 
     bool Aggroed;
 
+    float SlapEffectiveness = 1;
+
     public override void _Ready()
     {
         base._Ready();
@@ -91,7 +93,7 @@ public partial class AggressiveFish : RigidBody3D
 
     public void Slapped()
     {
-        BackOffTime = 3;
-
+        BackOffTime = 3 * SlapEffectiveness;
+        SlapEffectiveness *= .66666f;
     }
 }
