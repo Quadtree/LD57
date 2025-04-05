@@ -18,3 +18,11 @@ offset_top = 30.0
 offset_right = 951.0
 offset_bottom = 92.0
 value = 50.0
+
+[node name="DebugInfo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2972.0
+offset_top = 29.0
+offset_right = 3468.0
+offset_bottom = 379.0
+text = "DEBUG INFO"

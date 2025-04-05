@@ -88,6 +88,8 @@ public partial class Chariot : Node3D
     {
         base._PhysicsProcess(delta);
 
+        var debugInfo = "";
+
         var moveVector = new Vector2(0, 0);
 
         var mbb = this.FindChildByName<Buoyancy>("MainBodyBuoyancy");
@@ -106,7 +108,7 @@ public partial class Chariot : Node3D
             mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         }
 
-        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower * this.FindChildrenByType<RigidBody3D>().Sum(it => it.Mass) / 15);
+        this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower);
 
         if (Input.IsActionPressed("increase_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount + ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         if (Input.IsActionPressed("decrease_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
@@ -182,14 +184,18 @@ public partial class Chariot : Node3D
         InvulnerableTime -= (float)delta;
 
         // drag in the water
-        // foreach (var it in this.FindChildrenByType<RigidBody3D>())
-        // {
-        //     it.LinearDamp = 0.0f;
+        foreach (var it in this.FindChildrenByType<RigidBody3D>())
+        {
+            it.LinearDamp = 0.0f;
 
-        //     var dragForce = it.LinearVelocity * -0.1f;
+            var dragForce = it.LinearVelocity * -0.1f;
 
-        //     it.ApplyCentralForce(dragForce);
-        // }
+            it.ApplyCentralForce(dragForce);
+
+            debugInfo += $" {dragForce.Length():0.00}";
+        }
+
+        GetTree().CurrentScene.FindChildByName<Label>("DebugInfo").Text = debugInfo;
     }
 
     public override void _Process(double delta)
