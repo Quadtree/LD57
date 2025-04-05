@@ -46,12 +46,20 @@ public partial class Chariot : Node3D
     [Export]
     public float HorsePower = 300;
 
+    [Export]
+    public bool LightEnabled = false;
+
     float OriginalHorseMass = 0;
     float OriginalTotalNonHorseMass = 0;
 
     public override void _Ready()
     {
         base._Ready();
+
+        if (LightEnabled)
+        {
+            foreach (var it in this.FindChildrenByType<OmniLight3D>()) it.Visible = true;
+        }
 
         this.FindChildByName<Node>("DriverHead").FindChildByType<Buoyancy>().Amount = Util.Clamp(StartingMainBuoyancy, MinBuoyancy, MaxBuoyancy);
 

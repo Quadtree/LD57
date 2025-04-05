@@ -39,6 +39,13 @@ shape = SubResource("BoxShape3D_qacet")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainBody"]
 mesh = SubResource("BoxMesh_ssdiv")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="MainBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68271, 0.974718, 0)
+visible = false
+shadow_enabled = true
+shadow_opacity = 0.25
+omni_range = 10.0
+
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
 axis_lock_linear_z = true
