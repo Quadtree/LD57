@@ -108,5 +108,5 @@ node_b = NodePath("../DriverHead")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07366, 0)
 
 [node name="ChaseCamera" type="Camera3D" parent="ChaseCameraArm"]
-transform = Transform3D(1, 0, 0, 0, 0.980802, 0.195005, 0, -0.195005, 0.980802, 0, 0.740862, 7.99882)
+transform = Transform3D(1, 0, 0, 0, 0.980802, 0.195005, 0, -0.195005, 0.980802, 0, 0.740862, 10.3097)
 current = true
