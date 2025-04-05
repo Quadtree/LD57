@@ -1,0 +1,12 @@
+# TODO
+- Add in Kelp level
+- Add in gem/shark level
+- Add in cave level
+- Add in currents and sharks level
+- Add damage and possible defeat
+- Add in level select
+- Add title screen
+- Add win screen
+- Add lose screen
+- Sounds
+- Music
