@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0wugrg4vvuqa"]
+[gd_scene load_steps=5 format=3 uid="uid://c0wugrg4vvuqa"]
 
 [ext_resource type="Script" uid="uid://stnp8ekjtqne" path="res://maps/Default.cs" id="1_6jlvn"]
 [ext_resource type="PackedScene" uid="uid://dus8jp5dfo6ww" path="res://meshes/ter2.glb" id="1_q1grt"]
@@ -7,14 +7,11 @@
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q1grt"]
 data = PackedVector3Array(0.1098, 2.0401, 1, 1, 0, -1, 1, 0, 1, 0.1098, 2.0401, 1, 0.1098, 2.0401, -1, 1, 0, -1, 0.1098, 2.0401, 1, -1.3101, 3.0846, -1, 0.1098, 2.0401, -1, 0.1098, 2.0401, 1, -1.3101, 3.0846, 1, -1.3101, 3.0846, -1, -1.3101, 3.0846, 1, -5.6024, 2.8071, -1, -1.3101, 3.0846, -1, -1.3101, 3.0846, 1, -5.6024, 2.8071, 1, -5.6024, 2.8071, -1, -5.6024, 2.8071, 1, -7.3487, 3.003, -1, -5.6024, 2.8071, -1, -5.6024, 2.8071, 1, -7.3487, 3.003, 1, -7.3487, 3.003, -1, -7.3487, 3.003, 1, -8.5074, 3.77, -1, -7.3487, 3.003, -1, -7.3487, 3.003, 1, -8.5074, 3.77, 1, -8.5074, 3.77, -1, -8.5074, 3.77, 1, -10.5965, 5.7122, -1, -8.5074, 3.77, -1, -8.5074, 3.77, 1, -10.5965, 5.7122, 1, -10.5965, 5.7122, -1, -10.5965, 5.7122, 1, -16.8146, 7.2626, -1, -10.5965, 5.7122, -1, -10.5965, 5.7122, 1, -16.8146, 7.2626, 1, -16.8146, 7.2626, -1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_q1grt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_6jlvn"]
-
 [node name="Default" type="Node3D"]
 script = ExtResource("1_6jlvn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="ter2" parent="StaticBody3D" instance=ExtResource("1_q1grt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0519013, 2.38419e-07, 0.0119393)
@@ -23,24 +20,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0519013, 2.38419e-07, 0.01
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0519013, 2.38419e-07, 0.0119393)
 shape = SubResource("ConcavePolygonShape3D_q1grt")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09477, 7.94943, 0)
-axis_lock_linear_z = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_q1grt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_6jlvn")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.20338, 16.4494)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09889, 5.74329, 1.90735e-06)
-shadow_enabled = true
-
 [node name="Chariot" parent="." instance=ExtResource("3_hlrh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10924, 9.82771, -0.101637)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00167553, 0.999999, 0, -0.999999, -0.00167553, 0, 9.85343, 0)
+light_color = Color(0.407843, 0.72549, 1, 1)
+shadow_enabled = true
 
 [editable path="StaticBody3D/ter2"]

@@ -28,6 +28,7 @@ MaxBuoyancy = 1000.0
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+mass = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainBody"]
 shape = SubResource("BoxShape3D_qacet")
@@ -40,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
-mass = 20.0
+mass = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RearStorage"]
 shape = SubResource("BoxShape3D_5cu25")
@@ -50,6 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52014, 0, 0)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
+mass = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FrontStorage"]
 shape = SubResource("BoxShape3D_5cu25")
@@ -68,6 +70,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 mass = 10.0
+gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SeaHorse"]
 shape = SubResource("SphereShape3D_qacet")
@@ -75,10 +78,12 @@ shape = SubResource("SphereShape3D_qacet")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SeaHorse"]
 mesh = SubResource("SphereMesh_ssdiv")
 
-[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
+[node name="SeaHorseAttachment" type="ConeTwistJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04528, 0.00561166, -0.00112915)
 node_a = NodePath("../FrontStorage")
 node_b = NodePath("../SeaHorse")
+swing_span = 1.22173
+softness = 10.12
 
 [node name="DriverHead" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
@@ -92,7 +97,7 @@ skeleton = NodePath("../CollisionShape3D")
 
 [node name="MainBodyBuoyancy" type="Node" parent="DriverHead"]
 script = ExtResource("2_ssdiv")
-Amount = 200.0
+Amount = 100.0
 
 [node name="DriverHeadAttachment" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
