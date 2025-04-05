@@ -70,11 +70,8 @@ mesh = SubResource("SphereMesh_ssdiv")
 
 [node name="HorseHarness" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
-node_a = NodePath("../MainBody")
-node_b = NodePath("../SeaHorse")
+node_a = NodePath("../SeaHorse")
+node_b = NodePath("../FrontStorage")
 linear_limit_x/upper_distance = 1.0
 linear_limit_x/lower_distance = -1.0
-linear_limit_y/upper_distance = 5.0
-linear_limit_y/lower_distance = -5.0
-linear_limit_z/upper_distance = 5.0
-linear_limit_z/lower_distance = -5.0
+angular_limit_z/enabled = false
