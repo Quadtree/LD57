@@ -62,7 +62,7 @@ public partial class Chariot : Node3D
 
         // grabbed
 
-        if (!Input.IsActionPressed("grab")) CurrentlyGrabbed = null;
+        if (!Input.IsActionPressed("grab") || !IsInstanceValid(CurrentlyGrabbed)) CurrentlyGrabbed = null;
 
         if (CurrentlyGrabbed != null)
         {
