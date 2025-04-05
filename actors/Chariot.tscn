@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=8 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
+[ext_resource type="Script" uid="uid://dkt05lsy0iog6" path="res://components/Buoyancy.cs" id="2_ssdiv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qacet"]
 size = Vector3(2, 1, 1)
@@ -27,6 +28,9 @@ shape = SubResource("BoxShape3D_qacet")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainBody"]
 mesh = SubResource("BoxMesh_ssdiv")
+
+[node name="MainBodyBuoyancy" type="Node" parent="MainBody"]
+script = ExtResource("2_ssdiv")
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
