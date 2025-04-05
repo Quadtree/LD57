@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=10 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
 [ext_resource type="Script" uid="uid://dkt05lsy0iog6" path="res://components/Buoyancy.cs" id="2_ssdiv"]
@@ -15,6 +15,10 @@ size = Vector3(4, 0.8, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ssdiv"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ssdiv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5cu25"]
+
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
 BuoyancyChangeRate = 20.0
@@ -30,10 +34,6 @@ shape = SubResource("BoxShape3D_qacet")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainBody"]
 mesh = SubResource("BoxMesh_ssdiv")
-
-[node name="MainBodyBuoyancy" type="Node" parent="MainBody"]
-script = ExtResource("2_ssdiv")
-Amount = 200.0
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
@@ -79,3 +79,22 @@ mesh = SubResource("SphereMesh_ssdiv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04528, 0.00561166, -0.00112915)
 node_a = NodePath("../FrontStorage")
 node_b = NodePath("../SeaHorse")
+
+[node name="DriverHead" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DriverHead"]
+shape = SubResource("SphereShape3D_ssdiv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DriverHead"]
+mesh = SubResource("SphereMesh_5cu25")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MainBodyBuoyancy" type="Node" parent="DriverHead"]
+script = ExtResource("2_ssdiv")
+Amount = 200.0
+
+[node name="DriverHeadAttachment" type="Generic6DOFJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
+node_a = NodePath("../MainBody")
+node_b = NodePath("../DriverHead")
