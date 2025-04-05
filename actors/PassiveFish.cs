@@ -24,7 +24,6 @@ public partial class PassiveFish : RigidBody3D
         {
             if (body is StaticBody3D)
             {
-                CurrentTurnRate = 1;
                 HeadForSurface = true;
             }
         };
@@ -36,23 +35,25 @@ public partial class PassiveFish : RigidBody3D
 
         var targetSpeed = (ToGlobal(new Vector3(-1, 0, 0)) - GlobalPosition) * Speed;
 
+        if (HeadForSurface)
+        {
+            targetSpeed += new Vector3(0, 1, 0) * Speed;
+        }
+
         var changeInSpeed = (targetSpeed - LinearVelocity).Normalized() * Acceleration;
 
         GD.Print($"changeInSpeed={changeInSpeed} LinearVelocity={LinearVelocity}");
 
         ApplyCentralForce(changeInSpeed);
 
-        if (!HeadForSurface)
+        if (Util.RandChance((float)delta / 4))
         {
-            if (Util.RandChance((float)delta / 4))
-            {
-                CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
-            }
+            CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
+        }
 
-            if (Util.RandChance((float)delta * 4))
-            {
-                CurrentTurnRate = 0;
-            }
+        if (Util.RandChance((float)delta * 4))
+        {
+            CurrentTurnRate = 0;
         }
 
         ApplyTorque(new Vector3(0, 0, CurrentTurnRate));
