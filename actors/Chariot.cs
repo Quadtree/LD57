@@ -63,4 +63,18 @@ public partial class Chariot : Node3D
 
 
     }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        base._UnhandledInput(@event);
+
+        if (@event is InputEventMouseButton)
+        {
+            if (@event.IsActionPressed("grab"))
+            {
+                var picked = Picking.PickObjectAtCursor(this);
+                GD.Print($"picked={picked}");
+            }
+        }
+    }
 }
