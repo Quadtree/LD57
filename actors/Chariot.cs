@@ -197,7 +197,11 @@ public partial class Chariot : Node3D
                             if (nearestShark.GlobalPosition.DistanceTo(head.GlobalPosition) <= SlapRange)
                             {
                                 GD.Print($"SLAPPED {nearestShark}");
-                                nearestShark.Slapped();
+
+                                Util.StartOneShotTimer(this, 0.2f, () =>
+                                {
+                                    nearestShark.Slapped();
+                                });
                             }
                             else
                             {
