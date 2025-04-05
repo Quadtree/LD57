@@ -7,8 +7,13 @@ public partial class Grabbable : RigidBody3D
     {
         base._Ready();
 
+        ContactMonitor = true;
+        MaxContactsReported = 20;
+
         BodyEntered += (body) =>
         {
+            if (GetParent() == null) return;
+
             if (body is Storage storage)
             {
                 storage.EnterStorage(this);
