@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://clu26hv4bl4ut"]
+
+[ext_resource type="PackedScene" uid="uid://d0toho80wwnv2" path="res://actors/Grabbable.tscn" id="1_xw1i2"]
+
+[node name="Grabbable" instance=ExtResource("1_xw1i2")]

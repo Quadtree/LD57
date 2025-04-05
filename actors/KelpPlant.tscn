@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://diauaa8uuh8cg"]
+
+[ext_resource type="PackedScene" uid="uid://clu26hv4bl4ut" path="res://actors/GrabbableKelpLeaf.tscn" id="1_mmhcu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pf2bm"]
+radius = 0.2
+height = 5.0
+
+[node name="KelpPlant" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00755334, 1.98653, -0.0041256)
+mesh = SubResource("CapsuleMesh_pf2bm")
+
+[node name="Grabbable" parent="." instance=ExtResource("1_mmhcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445473, 2, 0)
+
+[node name="Grabbable2" parent="." instance=ExtResource("1_mmhcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554527, 4, 0)
