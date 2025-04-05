@@ -6,7 +6,7 @@ public partial class ThoughtZone : Node3D
     [Export]
     float Radius;
 
-    [Export]
+    [Export(PropertyHint.MultilineText)]
     string Text;
 
     bool Fired;

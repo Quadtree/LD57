@@ -51,6 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.947, -0.64763, -0.415826)
 [node name="ThoughtZone" parent="." index="10" instance=ExtResource("7_6ihxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4508, -0.000272751, 0.20814)
 Radius = 30.0
-Text = "I smell a dangerous sunfish.I can fend it off with a tentacle by clicking on it."
+Text = "I smell a dangerous sunfish.
+I can fend it off with a tentacle by clicking on it."
 
 [editable path="StaticBody3D/level1"]
