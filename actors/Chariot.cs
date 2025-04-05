@@ -43,7 +43,11 @@ public partial class Chariot : Node3D
                     }
                     var relSpeed = otherSpeed.DistanceTo(it.LinearVelocity);
 
-                    GD.Print($"{it} has hit {body}, relSpeed={relSpeed}");
+                    var damage = Util.Clamp((relSpeed - 0.1f) * (5f / .2f), 0, 1000);
+
+                    GD.Print($"{it} has hit {body}, relSpeed={relSpeed} damage={damage}");
+
+                    Health -= damage;
                 }
             };
         }
