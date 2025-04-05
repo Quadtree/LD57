@@ -42,6 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2673, 8.47159, -0.745609)
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource("5_vnah1")]
 
 [node name="PassiveFish" parent="." instance=ExtResource("6_o8hxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 13, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.25469, 0)
 
 [editable path="StaticBody3D/ter2"]

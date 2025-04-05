@@ -11,6 +11,25 @@ public partial class PassiveFish : RigidBody3D
 
     float CurrentTurnRate;
 
+    bool HeadForSurface = false;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        ContactMonitor = true;
+        MaxContactsReported = 20;
+
+        BodyEntered += (body) =>
+        {
+            if (body is StaticBody3D)
+            {
+                CurrentTurnRate = 1;
+                HeadForSurface = true;
+            }
+        };
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -23,14 +42,17 @@ public partial class PassiveFish : RigidBody3D
 
         ApplyCentralForce(changeInSpeed);
 
-        if (Util.RandChance((float)delta / 4))
+        if (!HeadForSurface)
         {
-            CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
-        }
+            if (Util.RandChance((float)delta / 4))
+            {
+                CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
+            }
 
-        if (Util.RandChance((float)delta * 4))
-        {
-            CurrentTurnRate = 0;
+            if (Util.RandChance((float)delta * 4))
+            {
+                CurrentTurnRate = 0;
+            }
         }
 
         ApplyTorque(new Vector3(0, 0, CurrentTurnRate));
