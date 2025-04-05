@@ -93,6 +93,7 @@ linear_limit_x/upper_distance = 0.3
 linear_limit_x/lower_distance = -0.3
 angular_limit_z/upper_angle = 0.872665
 angular_limit_z/lower_angle = -0.872665
+angular_limit_z/force_limit = 100.0
 
 [node name="HorseHarness2" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11064, 0, 0)
@@ -102,3 +103,4 @@ linear_limit_x/upper_distance = 0.3
 linear_limit_x/lower_distance = -0.3
 angular_limit_z/upper_angle = 0.872665
 angular_limit_z/lower_angle = -0.872665
+angular_limit_z/force_limit = 100.0
