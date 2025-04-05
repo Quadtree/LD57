@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://df8d7ahwr5o2h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j1syk"]
+radius = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n003q"]
+radius = 0.3
+
+[node name="AggressiveFish" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_j1syk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_n003q")
