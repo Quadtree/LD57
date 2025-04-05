@@ -1,9 +1,9 @@
 # TODO
-- Add in first cave level
 - Add in gem/shark level
 - Add in cave level. make sure the player needs to back up into something
 - Add in currents and sharks level
 - Add in limit at the top of levels
+- Clear mission objectives
 - Final visuals: Chariot
 - Final visuals: Enemies
 - Final visuals: Tentacles
@@ -21,3 +21,4 @@
 - Add damage and possible defeat
 - Add in enemies: Shark, and slow shark, and harmless whale shark or whatever
 - Slapping sharks
+- Add in first cave level
