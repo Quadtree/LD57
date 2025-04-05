@@ -29,6 +29,10 @@ project/assembly_name="LD57"
 
 import/blender/enabled=false
 
+[physics]
+
+3d/default_linear_damp=3.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

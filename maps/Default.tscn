@@ -41,6 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09889, 5.74329, 1.90735e-0
 shadow_enabled = true
 
 [node name="Chariot" parent="." instance=ExtResource("3_hlrh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10924, 6.0413, -0.101637)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10924, 9.82771, -0.101637)
 
 [editable path="StaticBody3D/ter2"]

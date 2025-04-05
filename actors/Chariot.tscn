@@ -14,6 +14,9 @@ size = Vector3(4, 0.8, 1)
 script = ExtResource("1_qacet")
 
 [node name="MainBody" type="RigidBody3D" parent="."]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainBody"]
 shape = SubResource("BoxShape3D_qacet")
@@ -23,12 +26,19 @@ mesh = SubResource("BoxMesh_ssdiv")
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RearStorage"]
 shape = SubResource("BoxShape3D_5cu25")
 
 [node name="FrontStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52014, 0, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FrontStorage"]
 shape = SubResource("BoxShape3D_5cu25")
