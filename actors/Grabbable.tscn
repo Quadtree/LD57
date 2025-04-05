@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0toho80wwnv2"]
+
+[ext_resource type="Script" uid="uid://bdtx1u5eq0w48" path="res://actors/Grabbable.cs" id="1_qeuqg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3humc"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qeuqg"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Grabbable" type="RigidBody3D"]
+axis_lock_linear_z = true
+script = ExtResource("1_qeuqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3humc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qeuqg")
