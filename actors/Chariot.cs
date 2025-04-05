@@ -24,36 +24,40 @@ public partial class Chariot : Node3D
     Vector3 PrevVelocity;
     float PrevRotation;
 
+    float RecentCollision = 0;
+
     public override void _Ready()
     {
         base._Ready();
 
-        // var myParts = this.FindChildrenByType<RigidBody3D>().ToArray();
+        var myParts = this.FindChildrenByType<RigidBody3D>().ToArray();
 
-        // foreach (var it in myParts)
-        // {
-        //     it.ContactMonitor = true;
-        //     it.MaxContactsReported = 20;
+        foreach (var it in myParts)
+        {
+            it.ContactMonitor = true;
+            it.MaxContactsReported = 20;
 
-        //     it.BodyEntered += (body) =>
-        //     {
-        //         if (!myParts.Contains(body))
-        //         {
-        //             var otherSpeed = new Vector3(0, 0, 0);
-        //             if (body is RigidBody3D rb3d)
-        //             {
-        //                 otherSpeed = rb3d.LinearVelocity;
-        //             }
-        //             var relSpeed = otherSpeed.DistanceTo(it.LinearVelocity);
+            it.BodyEntered += (body) =>
+            {
+                if (!myParts.Contains(body))
+                {
+                    RecentCollision = 0.1f;
 
-        //             var damage = Util.Clamp((relSpeed - 0.1f) * (5f / .2f), 0, 1000);
+                    // var otherSpeed = new Vector3(0, 0, 0);
+                    // if (body is RigidBody3D rb3d)
+                    // {
+                    //     otherSpeed = rb3d.LinearVelocity;
+                    // }
+                    // var relSpeed = otherSpeed.DistanceTo(it.LinearVelocity);
 
-        //             GD.Print($"{it} has hit {body}, relSpeed={relSpeed} damage={damage}");
+                    // var damage = Util.Clamp((relSpeed - 0.1f) * (5f / .2f), 0, 1000);
 
-        //             Health -= damage;
-        //         }
-        //     };
-        // }
+                    // GD.Print($"{it} has hit {body}, relSpeed={relSpeed} damage={damage}");
+
+                    // Health -= damage;
+                }
+            };
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -131,7 +135,7 @@ public partial class Chariot : Node3D
         var mb = this.FindChildByName<RigidBody3D>("MainBody");
 
         var changeInVelocity = PrevVelocity.DistanceTo(mb.LinearVelocity);
-        if (changeInVelocity > 0.1f)
+        if (changeInVelocity > 0.1f && RecentCollision > 0)
         {
             var damage = changeInVelocity * (5f / .3f);
 
@@ -142,6 +146,7 @@ public partial class Chariot : Node3D
 
         PrevVelocity = mb.LinearVelocity;
         PrevRotation = mb.Rotation.Z;
+        RecentCollision -= (float)delta;
     }
 
     public override void _Process(double delta)
