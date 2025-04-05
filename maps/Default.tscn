@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0wugrg4vvuqa"]
+[gd_scene load_steps=6 format=3 uid="uid://c0wugrg4vvuqa"]
 
+[ext_resource type="Script" uid="uid://stnp8ekjtqne" path="res://maps/Default.cs" id="1_6jlvn"]
 [ext_resource type="PackedScene" uid="uid://dus8jp5dfo6ww" path="res://meshes/ter2.glb" id="1_q1grt"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q1grt"]
@@ -10,6 +11,7 @@ data = PackedVector3Array(0.1098, 2.0401, 1, 1, 0, -1, 1, 0, 1, 0.1098, 2.0401, 
 [sub_resource type="SphereMesh" id="SphereMesh_6jlvn"]
 
 [node name="Default" type="Node3D"]
+script = ExtResource("1_6jlvn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
