@@ -3,6 +3,15 @@ using Godot;
 
 public partial class Chariot : Node3D
 {
+    [Export]
+    float BuoyancyChangeRate;
+
+    [Export]
+    float MaxBuoyancy;
+
+    [Export]
+    float MinBuoyancy;
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -15,5 +24,14 @@ public partial class Chariot : Node3D
         if (Input.IsActionPressed("move_down")) moveVector.Y = -1;
 
         this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * 300);
+
+        var mbb = this.FindChildByName<Buoyancy>("MainBodyBuoyancy");
+        var oldB = mbb.Amount;
+        if (Input.IsActionPressed("increase_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount + ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
+        if (Input.IsActionPressed("decrease_buoyancy")) mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
+        if (mbb.Amount != oldB)
+        {
+            GD.Print($"mbb.Amount={mbb.Amount}");
+        }
     }
 }

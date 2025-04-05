@@ -17,6 +17,8 @@ size = Vector3(4, 0.8, 1)
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
+BuoyancyChangeRate = 20.0
+MaxBuoyancy = 1000.0
 
 [node name="MainBody" type="RigidBody3D" parent="."]
 axis_lock_linear_z = true
@@ -31,6 +33,7 @@ mesh = SubResource("BoxMesh_ssdiv")
 
 [node name="MainBodyBuoyancy" type="Node" parent="MainBody"]
 script = ExtResource("2_ssdiv")
+Amount = 200.0
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)

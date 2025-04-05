@@ -4,7 +4,7 @@ using Godot;
 public partial class Buoyancy : Node
 {
     [Export]
-    float Amount = 0;
+    public float Amount = 0;
 
     public override void _PhysicsProcess(double delta)
     {
