@@ -13,10 +13,10 @@ public partial class AggressiveFish : RigidBody3D
     float AggroRange;
 
     float BackOffTime;
-    float LeashingTime;
 
     Vector3 StartingPosition;
 
+    [Export]
     float LeashRange;
 
     bool Aggroed;
@@ -60,7 +60,9 @@ public partial class AggressiveFish : RigidBody3D
 
         var targetSpeed = new Vector3(0, 0, 0);
 
-        if (chariot != null && Aggroed && LeashingTime <= 0)
+        if (chariot == null || chariot.MainBodyPos.DistanceTo(StartingPosition) > LeashRange) Aggroed = false;
+
+        if (chariot != null && Aggroed)
         {
             if (BackOffTime <= 0)
             {
@@ -70,6 +72,10 @@ public partial class AggressiveFish : RigidBody3D
             {
                 targetSpeed = (GlobalPosition - chariot.MainBodyPos).Normalized() * Speed;
             }
+        }
+        else
+        {
+            targetSpeed = (StartingPosition - GlobalPosition).Normalized() * Speed;
         }
 
         var force = (targetSpeed - LinearVelocity) * 100;
@@ -81,6 +87,5 @@ public partial class AggressiveFish : RigidBody3D
         this.FindChildByType<Label3D>().Text = $"force={force} BackOffTime={BackOffTime} Aggroed={Aggroed}";
 
         BackOffTime -= (float)delta;
-        LeashingTime -= (float)delta;
     }
 }
