@@ -6,9 +6,15 @@ public partial class Grabbable : RigidBody3D
     [Export]
     public float Buoyancy;
 
+    [Export]
+    public bool InitiallyFrozen;
+
     public override void _Ready()
     {
         base._Ready();
+
+        AxisLockLinearX = InitiallyFrozen;
+        AxisLockLinearY = InitiallyFrozen;
 
         ContactMonitor = true;
         MaxContactsReported = 20;

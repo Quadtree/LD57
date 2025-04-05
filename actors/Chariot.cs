@@ -198,6 +198,9 @@ public partial class Chariot : Node3D
                 {
                     GD.Print("Grabbed something");
                     CurrentlyGrabbed = (Grabbable)picked;
+
+                    CurrentlyGrabbed.AxisLockLinearX = false;
+                    CurrentlyGrabbed.AxisLockLinearY = false;
                 }
                 else if (SlapCooldownLeft <= 0)
                 {
