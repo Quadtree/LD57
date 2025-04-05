@@ -61,6 +61,9 @@ public partial class Chariot : Node3D
 
 
         // grabbed
+
+        if (!Input.IsActionPressed("grab")) CurrentlyGrabbed = null;
+
         if (CurrentlyGrabbed != null)
         {
             var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
@@ -78,6 +81,10 @@ public partial class Chariot : Node3D
                 ));
 
                 GD.Print($"cursorPosition={cursorPosition}");
+                if (cursorPosition != null)
+                {
+                    CurrentlyGrabbed.ApplyCentralForce((cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 10);
+                }
             }
         }
     }
