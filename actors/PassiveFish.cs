@@ -17,7 +17,7 @@ public partial class PassiveFish : RigidBody3D
 
         var changeInSpeed = (targetSpeed - LinearVelocity).Normalized() * Acceleration;
 
-        GD.Print($"changeInSpeed={changeInSpeed}");
+        GD.Print($"changeInSpeed={changeInSpeed} LinearVelocity={LinearVelocity}");
 
         ApplyCentralForce(changeInSpeed);
     }
