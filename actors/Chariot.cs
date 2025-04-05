@@ -83,7 +83,7 @@ public partial class Chariot : Node3D
                 GD.Print($"cursorPosition={cursorPosition}");
                 if (cursorPosition != null)
                 {
-                    CurrentlyGrabbed.ApplyCentralForce((cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 10);
+                    CurrentlyGrabbed.ApplyCentralForce((cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 40);
                 }
             }
         }
