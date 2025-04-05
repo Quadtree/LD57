@@ -9,6 +9,8 @@ public partial class PassiveFish : RigidBody3D
     [Export]
     public float Acceleration;
 
+    float CurrentTurnRate;
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -20,5 +22,12 @@ public partial class PassiveFish : RigidBody3D
         GD.Print($"changeInSpeed={changeInSpeed} LinearVelocity={LinearVelocity}");
 
         ApplyCentralForce(changeInSpeed);
+
+        if (Util.RandChance((float)delta / 4))
+        {
+            CurrentTurnRate = Util.RandF(-1f, 1f) * 1000;
+        }
+
+        ApplyTorque(new Vector3(0, 0, CurrentTurnRate));
     }
 }
