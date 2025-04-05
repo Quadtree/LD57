@@ -201,6 +201,7 @@ public partial class Chariot : Node3D
 
                     CurrentlyGrabbed.AxisLockLinearX = false;
                     CurrentlyGrabbed.AxisLockLinearY = false;
+                    CurrentlyGrabbed.AxisLockAngularZ = false;
                 }
                 else if (SlapCooldownLeft <= 0)
                 {

@@ -15,6 +15,7 @@ public partial class Grabbable : RigidBody3D
 
         AxisLockLinearX = InitiallyFrozen;
         AxisLockLinearY = InitiallyFrozen;
+        AxisLockAngularZ = InitiallyFrozen;
 
         ContactMonitor = true;
         MaxContactsReported = 20;
