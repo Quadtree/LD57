@@ -15,6 +15,9 @@ public partial class Chariot : Node3D
     [Export]
     float LeftRightRatio = 3;
 
+    [Export]
+    public float Health = 100;
+
     RigidBody3D CurrentlyGrabbed;
 
     public override void _PhysicsProcess(double delta)
