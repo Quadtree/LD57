@@ -36,7 +36,14 @@ public partial class Chariot : Node3D
             {
                 if (!myParts.Contains(body))
                 {
-                    GD.Print($"{it} has hit {body}");
+                    var otherSpeed = new Vector3(0, 0, 0);
+                    if (body is RigidBody3D rb3d)
+                    {
+                        otherSpeed = rb3d.LinearVelocity;
+                    }
+                    var relSpeed = otherSpeed.DistanceTo(it.LinearVelocity);
+
+                    GD.Print($"{it} has hit {body}, relSpeed={relSpeed}");
                 }
             };
         }
