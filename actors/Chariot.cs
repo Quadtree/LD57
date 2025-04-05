@@ -32,6 +32,11 @@ public partial class Chariot : Node3D
 
     float RecentCollision = 0;
 
+    [Export]
+    public float SlapCooldown = 2;
+
+    float SlapCooldownLeft = 0;
+
     public override void _Ready()
     {
         base._Ready();
@@ -153,6 +158,7 @@ public partial class Chariot : Node3D
         PrevVelocity = mb.LinearVelocity;
         PrevRotation = mb.Rotation.Z;
         RecentCollision -= (float)delta;
+        SlapCooldownLeft -= (float)delta;
     }
 
     public override void _Process(double delta)
@@ -177,7 +183,7 @@ public partial class Chariot : Node3D
                     GD.Print("Grabbed something");
                     CurrentlyGrabbed = (Grabbable)picked;
                 }
-                else
+                else if (SlapCooldownLeft <= 0)
                 {
                     // maybe slap a shark?
                     var cursorPosition = Picking.PickPlaneAtCursor(this, new Plane(
@@ -197,6 +203,7 @@ public partial class Chariot : Node3D
                             if (nearestShark.GlobalPosition.DistanceTo(head.GlobalPosition) <= SlapRange)
                             {
                                 GD.Print($"SLAPPED {nearestShark}");
+                                SlapCooldownLeft = SlapCooldown;
 
                                 Util.StartOneShotTimer(this, 0.2f, () =>
                                 {
