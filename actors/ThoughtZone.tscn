@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh7a5va1ppvja"]
+
+[ext_resource type="Script" uid="uid://bs42cjcls2asn" path="res://actors/ThoughtZone.cs" id="1_mhca6"]
+
+[node name="ThoughtZone" type="Node3D"]
+script = ExtResource("1_mhca6")
