@@ -12,6 +12,9 @@ public partial class Chariot : Node3D
     [Export]
     float MinBuoyancy;
 
+    [Export]
+    float LeftRightRatio = 3;
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -20,8 +23,8 @@ public partial class Chariot : Node3D
 
         if (Input.IsActionPressed("move_left")) moveVector.X = -1;
         if (Input.IsActionPressed("move_right")) moveVector.X = 1;
-        if (Input.IsActionPressed("move_up")) moveVector.Y = 1;
-        if (Input.IsActionPressed("move_down")) moveVector.Y = -1;
+        if (Input.IsActionPressed("move_up")) moveVector.Y = 1 / LeftRightRatio;
+        if (Input.IsActionPressed("move_down")) moveVector.Y = -1 / LeftRightRatio;
 
         this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * 300);
 

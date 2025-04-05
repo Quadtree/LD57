@@ -21,7 +21,7 @@ size = Vector3(4, 0.8, 1)
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
-BuoyancyChangeRate = 20.0
+BuoyancyChangeRate = 50.0
 MaxBuoyancy = 1000.0
 
 [node name="MainBody" type="RigidBody3D" parent="."]
