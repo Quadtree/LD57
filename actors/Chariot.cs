@@ -114,12 +114,14 @@ public partial class Chariot : Node3D
             mbb.Amount = Util.Clamp(mbb.Amount - ((float)delta * BuoyancyChangeRate), MinBuoyancy, MaxBuoyancy);
         }
 
-        var horseMass = this.FindChildByName<RigidBody3D>("SeaHorse").Mass;
-        var totalNonHorseMass = this.FindChildrenByType<RigidBody3D>().Where(it => it.Name != "SeaHorse").Select(it => it.Mass).Sum();
-        var horsePowerModifier = (totalNonHorseMass / OriginalHorseMass) / (OriginalTotalNonHorseMass / OriginalHorseMass);
+        // var horseMass = this.FindChildByName<RigidBody3D>("SeaHorse").Mass;
+        // var totalNonHorseMass = this.FindChildrenByType<RigidBody3D>().Where(it => it.Name != "SeaHorse").Select(it => it.Mass).Sum();
+        // var horsePowerModifier = (totalNonHorseMass / OriginalHorseMass) / (OriginalTotalNonHorseMass / OriginalHorseMass);
 
-        debugInfo += $"OriginalHorseMass={OriginalHorseMass} OriginalTotalNonHorseMass={OriginalTotalNonHorseMass}\n";
-        debugInfo += $"horseMass={horseMass} totalNonHorseMass={totalNonHorseMass} \nhorsePowerModifier={horsePowerModifier}\n";
+        // debugInfo += $"OriginalHorseMass={OriginalHorseMass} OriginalTotalNonHorseMass={OriginalTotalNonHorseMass}\n";
+        // debugInfo += $"horseMass={horseMass} totalNonHorseMass={totalNonHorseMass} \nhorsePowerModifier={horsePowerModifier}\n";
+
+        var horsePowerModifier = 1;
 
         this.FindChildByName<RigidBody3D>("SeaHorse").Mass = OriginalHorseMass * horsePowerModifier;
         this.FindChildByName<RigidBody3D>("SeaHorse").ApplyCentralForce(new Vector3(moveVector.X, moveVector.Y, 0) * HorsePower * horsePowerModifier);
@@ -200,16 +202,23 @@ public partial class Chariot : Node3D
         debugInfo += $"{head.LinearVelocity.Length():0.00}\n";
 
         // drag in the water
-        // foreach (var it in this.FindChildrenByType<RigidBody3D>())
-        // {
-        //     it.LinearDamp = 0.0f;
 
-        //     var dragForce = -it.LinearVelocity * Util.Clamp(0.1f - (it.Mass / 50), 0, 1);
+        var totalNonHorseMass = this.FindChildrenByType<RigidBody3D>().Where(it => it.Name != "SeaHorse").Select(it => it.Mass).Sum();
 
-        //     it.ApplyCentralForce(dragForce);
+        var dragRatio = totalNonHorseMass / OriginalTotalNonHorseMass;
+        debugInfo += $"dragRatio={dragRatio}\n";
 
-        //     debugInfo += $" {dragForce.Length():0.00}";
-        // }
+        foreach (var it in this.FindChildrenByType<RigidBody3D>())
+        {
+            it.LinearDamp = 0.0f;
+            it.LinearDampMode = RigidBody3D.DampMode.Replace;
+
+            var dragForce = -it.LinearVelocity * 15;
+
+            it.ApplyCentralForce(dragForce);
+
+            debugInfo += $" {dragForce.Length():0.00}";
+        }
 
         GetTree().CurrentScene.FindChildByName<Label>("DebugInfo").Text = debugInfo;
     }
