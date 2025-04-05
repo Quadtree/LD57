@@ -64,11 +64,11 @@ public partial class AggressiveFish : RigidBody3D
         {
             if (BackOffTime <= 0)
             {
-                targetSpeed = (chariot.GlobalPosition - GlobalPosition).Normalized() * Speed;
+                targetSpeed = (chariot.MainBodyPos - GlobalPosition).Normalized() * Speed;
             }
             else
             {
-                targetSpeed = (GlobalPosition - chariot.GlobalPosition).Normalized() * Speed;
+                targetSpeed = (GlobalPosition - chariot.MainBodyPos).Normalized() * Speed;
             }
         }
 
@@ -76,7 +76,7 @@ public partial class AggressiveFish : RigidBody3D
 
         if (force.Length() > 10_000) force = force.Normalized() * 10_000;
 
-        ApplyForce(force, new Vector3(0, 0, 0));
+        ApplyForce(force, new Transform3D(Basis, new Vector3(0, 0, 0)) * new Vector3(-1, 0, 0));
 
         this.FindChildByType<Label3D>().Text = $"force={force} BackOffTime={BackOffTime} Aggroed={Aggroed}";
 
