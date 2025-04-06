@@ -9,8 +9,8 @@ public partial class DebrisOverlay : Node3D
 
         var camPos = GetViewport().GetCamera3D().GlobalPosition;
         var zone = new Vector2I(
-            (int)(camPos.X / 20),
-            (int)(camPos.Y / 20)
+            Mathf.RoundToInt(camPos.X / 20),
+            Mathf.RoundToInt(camPos.Y / 20)
         );
 
         GlobalPosition = new Vector3(
