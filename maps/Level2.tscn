@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqxu5g0ehkl48"]
+[gd_scene load_steps=7 format=3 uid="uid://dqxu5g0ehkl48"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_d61pv"]
 [ext_resource type="PackedScene" uid="uid://v1wouryiepob" path="res://meshes/level2_col.tscn" id="2_5h65k"]
 [ext_resource type="PackedScene" uid="uid://b2k48ro3cn88g" path="res://actors/AFSunFish.tscn" id="3_8u71d"]
 [ext_resource type="PackedScene" uid="uid://diauaa8uuh8cg" path="res://actors/KelpPlant.tscn" id="4_voapu"]
 [ext_resource type="PackedScene" uid="uid://coht7alw4tcw8" path="res://actors/PassiveFish.tscn" id="5_y15rn"]
+[ext_resource type="PackedScene" uid="uid://dnhu43fbkpe31" path="res://actors/LevelBounds.tscn" id="6_voapu"]
 
 [node name="Default" instance=ExtResource("1_d61pv")]
 
@@ -37,3 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.2473, -24.612, -0.204542)
 
 [node name="PassiveFish" parent="." index="10" instance=ExtResource("5_y15rn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.153, -44.4727, 0.741922)
+
+[node name="LevelBounds" parent="." index="11" instance=ExtResource("6_voapu")]
+transform = Transform3D(247.127, 0, 0, 0, 212.616, 0, 0, 0, 1, 85.0589, -76.833, -7.12502)
+NextLevel = "res://maps/Level3.tscn"

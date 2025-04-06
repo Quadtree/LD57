@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://8iua0wxovqp8"]
+[gd_scene load_steps=6 format=3 uid="uid://8iua0wxovqp8"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_komj0"]
 [ext_resource type="PackedScene" uid="uid://80i7lkx1yc3g" path="res://meshes/Level3_col.tscn" id="2_o1qq1"]
 [ext_resource type="PackedScene" uid="uid://cwmuiun1ife8f" path="res://actors/AFShark.tscn" id="3_4jq1o"]
 [ext_resource type="PackedScene" uid="uid://cyglbocp31he8" path="res://actors/GrabbableSuperGem.tscn" id="4_cu6fm"]
+[ext_resource type="PackedScene" uid="uid://dnhu43fbkpe31" path="res://actors/LevelBounds.tscn" id="5_2jc1y"]
 
 [node name="Default" instance=ExtResource("1_komj0")]
 
@@ -33,3 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.447, 69.2926, -0.307076)
 
 [node name="AggressiveFish5" parent="." index="11" instance=ExtResource("3_4jq1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.846378, 21.0689, -0.0739511)
+
+[node name="LevelBounds" parent="." index="12" instance=ExtResource("5_2jc1y")]
+transform = Transform3D(211.051, 0, 0, 0, 173.714, 0, 0, 0, 1, 85.0589, 8.54272, -7.12502)
+NextLevel = "res://maps/Level4.tscn"

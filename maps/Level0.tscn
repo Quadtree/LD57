@@ -38,6 +38,7 @@ Try to avoid crashing into things."
 
 [node name="LevelBounds" parent="." index="4" instance=ExtResource("4_sengc")]
 transform = Transform3D(67.787, 0, 0, 0, 60.0471, 0, 0, 0, 1, 0.431717, 0.129871, -7.12502)
+NextLevel = "res://maps/Level1.tscn"
 
 [editable path="StaticBody3D/ter2"]
 [editable path="StaticBody3D/ThoughtBubble"]

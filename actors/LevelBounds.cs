@@ -6,6 +6,9 @@ public partial class LevelBounds : Node3D
     [Export]
     float Slosh = 5;
 
+    [Export]
+    string NextLevel;
+
     public override void _Ready()
     {
         base._Ready();
