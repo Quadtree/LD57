@@ -68,7 +68,8 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -4.50236, 2.37325, 0.10
 
 [node name="ThoughtText" parent="ThoughtBubble" index="4"]
 text = "I can grab kelp by clicking and dragging.
-It can be stored in the front or back of the chariot."
+It can be stored in the front or back of the chariot.
+Also, I can restart the level with Ctrl+R."
 
 [node name="LevelBounds" parent="." index="12" instance=ExtResource("9_5u637")]
 transform = Transform3D(208.905, 0, 0, 0, 98.9774, 0, 0, 0, 1, 0.431717, 0.129871, -7.12502)
