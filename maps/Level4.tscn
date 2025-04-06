@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://wwxhm3deem8u"]
+[gd_scene load_steps=5 format=3 uid="uid://wwxhm3deem8u"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_3vj70"]
 [ext_resource type="PackedScene" uid="uid://ds7xy5cv3rklv" path="res://meshes/level_4_col.tscn" id="2_0ko7p"]
+[ext_resource type="PackedScene" uid="uid://cyglbocp31he8" path="res://actors/GrabbableSuperGem.tscn" id="3_ww80l"]
+[ext_resource type="PackedScene" uid="uid://b2k48ro3cn88g" path="res://actors/AFSunFish.tscn" id="4_jjb40"]
 
 [node name="Default" instance=ExtResource("1_3vj70")]
 
 [node name="level4" parent="." index="3" instance=ExtResource("2_0ko7p")]
 transform = Transform3D(-4.37114e-08, 5, -2.18557e-07, 0, -2.18557e-07, -5, -1, -2.18557e-07, 9.55343e-15, 95.3542, -16.742, 0)
+
+[node name="Grabbable" parent="." index="4" instance=ExtResource("3_ww80l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4827, -79.4549, -0.139801)
+
+[node name="Grabbable2" parent="." index="5" instance=ExtResource("3_ww80l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.816, -40.4814, 0.074969)
+
+[node name="AggressiveFish" parent="." index="6" instance=ExtResource("4_jjb40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9838, -58.3851, 0.255552)
+LeashRange = 1000.0
