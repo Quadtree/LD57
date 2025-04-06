@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=18 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
 [ext_resource type="Script" uid="uid://lt22yngnw3h7" path="res://components/Storage.cs" id="2_5cu25"]
@@ -13,6 +13,8 @@ size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ssdiv"]
 size = Vector3(4, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6du53"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cu25"]
 
@@ -66,6 +68,14 @@ omni_range = 10.0
 
 [node name="chariot1" parent="MainBody" instance=ExtResource("2_a34f3")]
 transform = Transform3D(-1.81075e-08, 0, -0.414252, 0, 0.414252, 0, 0.414252, 0, -1.81075e-08, 0, -0.264749, 0)
+
+[node name="TentacleBase" type="Node3D" parent="MainBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780437, 0.355792)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MainBody/TentacleBase"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.489859, -0.0106903, -0.0240538)
+mesh = SubResource("BoxMesh_6du53")
+skeleton = NodePath("../..")
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
