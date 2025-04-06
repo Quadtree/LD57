@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://nf8s4rab3fl8"]
+
+[ext_resource type="LabelSettings" uid="uid://labhg7mcndnd" path="res://ui/labelsettings/biglabelsetting.tres" id="1_jb6ke"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3job"]
+font_size = 300
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[node name="LevelWinOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.123
+anchor_right = 1.0
+anchor_bottom = 0.458
+text = "Level Completed"
+label_settings = SubResource("LabelSettings_v3job")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.47
+anchor_right = 1.0
+anchor_bottom = 0.945
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 80
+
+[node name="KelpLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Kelp Collected: 0/0"
+label_settings = ExtResource("1_jb6ke")
+horizontal_alignment = 1
+
+[node name="GemLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Gems Collected: 0/0"
+label_settings = ExtResource("1_jb6ke")
+horizontal_alignment = 1
+
+[node name="KelpLabel3" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Time: 0/0"
+label_settings = ExtResource("1_jb6ke")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 800
+
+[node name="ReplayLevelButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Replay Level"
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Continue"
