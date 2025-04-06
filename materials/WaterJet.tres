@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d2xgygifoq657"]
+
+[ext_resource type="Shader" uid="uid://cw40wvmypkglg" path="res://materials/WaterJet.gdshader" id="1_db341"]
+
+[sub_resource type="Gradient" id="Gradient_va5ka"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.494118)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tdrou"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wwocb"]
+color_ramp = SubResource("Gradient_va5ka")
+noise = SubResource("FastNoiseLite_tdrou")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_db341")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_wwocb")
+shader_parameter/albedo_texture_size = Vector2i(512, 512)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
