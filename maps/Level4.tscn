@@ -9,6 +9,8 @@
 
 [node name="Default" instance=ExtResource("1_3vj70")]
 StartingDepth = 120.0
+SuperGemsPar = 1
+TimeParSeconds = 180
 
 [node name="Chariot" parent="." index="0"]
 LightEnabled = true

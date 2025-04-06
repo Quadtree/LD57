@@ -215,7 +215,7 @@ public partial class Chariot : Node3D
         var changeInVelocity = PrevVelocity.DistanceTo(mb.LinearVelocity);
         if (InvulnerableTime <= 0 && changeInVelocity > 0.2f && RecentCollision > 0)
         {
-            var damage = changeInVelocity * (5f / .3f) / 3;
+            var damage = changeInVelocity * (5f / .3f) / 5;
 
             GD.Print($"changeInVelocity={changeInVelocity} damage={damage}");
 
