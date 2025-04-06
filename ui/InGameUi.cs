@@ -7,6 +7,15 @@ public partial class InGameUi : Control
     {
         base._Process(delta);
 
-        this.FindChildByName<TextureProgressBar>("HealthBar").Value = GetTree().CurrentScene.FindChildByName<Chariot>("Chariot").Health;
+        var chariot = GetTree().CurrentScene.FindChildByName<Chariot>("Chariot");
+
+        if (chariot != null)
+        {
+            this.FindChildByName<TextureProgressBar>("HealthBar").Value = GetTree().CurrentScene.FindChildByName<Chariot>("Chariot").Health;
+        }
+        else
+        {
+            this.FindChildByName<TextureProgressBar>("HealthBar").Visible = false;
+        }
     }
 }

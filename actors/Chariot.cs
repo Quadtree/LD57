@@ -240,6 +240,12 @@ public partial class Chariot : Node3D
         }
 
         GetTree().CurrentScene.FindChildByName<Label>("DebugInfo").Text = debugInfo;
+
+        if (Health <= 0)
+        {
+            Util.SpawnOneShotParticleSystem(GD.Load<PackedScene>("res://particles/ChariotExplosion.tscn"), this, GlobalPosition);
+            QueueFree();
+        }
     }
 
     public override void _Process(double delta)
