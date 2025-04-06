@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyglbocp31he8"]
+[gd_scene load_steps=5 format=3 uid="uid://cyglbocp31he8"]
 
 [ext_resource type="PackedScene" uid="uid://d0toho80wwnv2" path="res://actors/Grabbable.tscn" id="1_upuue"]
 [ext_resource type="PackedScene" uid="uid://de76shs5ebbvd" path="res://meshes/supergem.glb" id="2_n75vf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_72w4g"]
 points = PackedVector3Array(0.588601, -0.430366, 0.060923, -0.918927, -1.01865, -0.31462, -0.922944, -1.02183, -0.276765, -0.029612, 0.908993, 0.0279959, -0.577387, -1.02631, 0.775459, 0.00773734, -1.02123, -0.974167, 0.586705, -1.01851, 0.766223, 0.429883, -1.51392, -0.198261, 0.928556, -0.975804, -0.313281, -0.301928, -1.5244, 0.381545, -0.459238, -1.53101, -0.160668, 0.283054, -1.54454, 0.389412, -0.0281242, 0.86142, -0.0488569, 0.0462338, -1.52198, -0.469398, 0.537725, -0.853132, 0.749592, -0.510274, -0.729243, 0.693171, 0.0427032, 0.838056, -0.0499472, 0.0450226, 0.837294, 0.0658144, -0.103923, -0.95463, -0.901812, -0.692958, -0.469653, -0.231373, 0.045176, -0.961736, -0.948047, 0.784042, -1.17781, -0.238141, -0.919686, -0.980757, -0.237516, 0.930454, -0.977227, -0.275273, -0.0687983, -1.50886, -0.465505, 0.772652, -1.01182, -0.427388, 0.617898, -0.971688, 0.679319, -0.49974, -1.14413, 0.697964, 0.0439432, 0.877893, 0.0246011, -0.869538, -0.8701, -0.303307, 0.431824, -1.51957, -0.00619789, 0.512411, -1.13939, 0.693543)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n75vf"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.482353)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
 
 [node name="Grabbable" instance=ExtResource("1_upuue")]
 mass = 40.0
@@ -21,5 +27,12 @@ transform = Transform3D(0.514647, 0, 0, 0, 0.514647, 0, 0, 0, 0.514647, 0, 0, 0)
 mesh = null
 
 [node name="supergem" parent="MeshInstance3D" index="0" instance=ExtResource("2_n75vf")]
+
+[node name="Cone" parent="MeshInstance3D/supergem" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n75vf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+light_color = Color(0, 1, 0, 1)
 
 [editable path="MeshInstance3D/supergem"]

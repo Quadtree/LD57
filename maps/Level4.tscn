@@ -27,7 +27,7 @@ AggroRange = 20.0
 LeashRange = 1000.0
 
 [node name="Grabbable3" parent="." index="7" instance=ExtResource("3_ww80l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84048, 1.22525, 0.141479)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84048, 1.03678, 0.141479)
 
 [node name="WaterJet" parent="." index="8" instance=ExtResource("5_8i3jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87151, -1.04528, -0.163362)
