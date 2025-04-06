@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://5ldk24pp6udb"]
+[gd_scene load_steps=6 format=3 uid="uid://5ldk24pp6udb"]
 
 [ext_resource type="Script" uid="uid://db7qwk3lj7op5" path="res://maps/TitleScreen.cs" id="1_27tjf"]
 [ext_resource type="PackedScene" uid="uid://bw57o6gv6dk2t" path="res://actors/Chariot.tscn" id="1_lk5gt"]
@@ -8,6 +8,11 @@ font_size = 300
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_27tjf"]
+font_size = 36
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_27tjf"]
 fog_enabled = true
@@ -65,6 +70,17 @@ text = "Jump to Level 3"
 [node name="Level4Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Jump to Level 4"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.972
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made by Quadtree for Ludum Dare 57      "
+label_settings = SubResource("LabelSettings_27tjf")
+horizontal_alignment = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_27tjf")
