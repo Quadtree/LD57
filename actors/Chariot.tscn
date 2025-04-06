@@ -136,7 +136,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6du53")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04528, 0.00561166, -0.00112915)
 node_a = NodePath("../FrontStorage")
 node_b = NodePath("../SeaHorse")
-swing_span = 1.36136
+swing_span = 1.22173
 softness = 10.12
 
 [node name="DriverHead" type="RigidBody3D" parent="."]
