@@ -16,18 +16,18 @@ public partial class LevelBounds : Node3D
 
         if (chariot != null)
         {
-            if (chariot.MainBodyPos.X <= -halfExtent.X + Slosh)
+            if (chariot.MainBodyPos.Y >= halfExtent.Y)
+            {
+                SicSuperShark();
+            }
+            // near the edge
+            else if (chariot.MainBodyPos.X <= -halfExtent.X + Slosh)
             {
                 SpawnSideDefense(new Vector3(-halfExtent.X - 5, chariot.MainBodyPos.Y, 0));
             }
             else if (chariot.MainBodyPos.Y >= halfExtent.Y - Slosh)
             {
                 SpawnSideDefense(new Vector3(chariot.MainBodyPos.X, halfExtent.Y + 5, 0));
-            }
-            // truly outside
-            else if (chariot.MainBodyPos.Y >= halfExtent.Y)
-            {
-                SicSuperShark();
             }
         }
     }
@@ -36,6 +36,7 @@ public partial class LevelBounds : Node3D
     {
         var superShark = GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense);
         superShark.Aggroed = true;
+        GD.Print("Siccing super shark!!!");
     }
 
 
@@ -44,9 +45,9 @@ public partial class LevelBounds : Node3D
         if (GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense) != null) return;
 
         var superShark = GD.Load<PackedScene>("res://actors/AFSuperShark.tscn").Instantiate<AggressiveFish>();
+        superShark.Position = pos;
         GetTree().CurrentScene.AddChild(superShark);
         superShark.IsSideDefense = true;
-        superShark.GlobalPosition = pos;
-
+        GD.Print("Spawning super shark!!!");
     }
 }

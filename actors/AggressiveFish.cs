@@ -58,6 +58,7 @@ public partial class AggressiveFish : RigidBody3D
         {
             if (chariot.MainBodyPos.DistanceTo(GlobalPosition) < AggroRange)
             {
+                if (!Aggroed) GD.Print($"{this} has been aggroed");
                 Aggroed = true;
             }
         }
