@@ -19,6 +19,8 @@ public partial class Default : Node3D
 
     float YAtStartingDepth;
 
+    public static bool EnableCheats = OS.HasFeature("editor");
+
     public float? CurrentDepth
     {
         get
