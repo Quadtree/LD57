@@ -29,6 +29,9 @@ data = PackedVector3Array(0, 10, 5, 0.4901, 10, 4.9759, 0, 6, 4.1, 0.4901, 10, 4
 
 [node name="WaterJet" type="StaticBody3D"]
 script = ExtResource("1_ri7kx")
+Range = 25.0
+MaxForce = 1200.0
+MinForce = 200.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("TorusMesh_duei6")
