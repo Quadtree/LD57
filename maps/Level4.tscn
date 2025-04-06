@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wwxhm3deem8u"]
+[gd_scene load_steps=7 format=3 uid="uid://wwxhm3deem8u"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_3vj70"]
 [ext_resource type="PackedScene" uid="uid://ds7xy5cv3rklv" path="res://meshes/level_4_col.tscn" id="2_0ko7p"]
 [ext_resource type="PackedScene" uid="uid://cyglbocp31he8" path="res://actors/GrabbableSuperGem.tscn" id="3_ww80l"]
 [ext_resource type="PackedScene" uid="uid://b2k48ro3cn88g" path="res://actors/AFSunFish.tscn" id="4_jjb40"]
 [ext_resource type="PackedScene" uid="uid://bcw2u68s2ifj0" path="res://actors/WaterJet.tscn" id="5_8i3jj"]
+[ext_resource type="PackedScene" uid="uid://dnhu43fbkpe31" path="res://actors/LevelBounds.tscn" id="6_gtcgp"]
 
 [node name="Default" instance=ExtResource("1_3vj70")]
 
@@ -32,3 +33,6 @@ MinForce = 20.0
 
 [node name="WaterJet2" parent="." index="9" instance=ExtResource("5_8i3jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2098, -76.3925, -0.151793)
+
+[node name="LevelBounds" parent="." index="10" instance=ExtResource("6_gtcgp")]
+transform = Transform3D(247.127, 0, 0, 0, 269.158, 0, 0, 0, 1, 97.8665, -24.8705, -7.12502)

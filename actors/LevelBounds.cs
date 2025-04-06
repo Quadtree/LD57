@@ -6,6 +6,13 @@ public partial class LevelBounds : Node3D
     [Export]
     float Slosh = 5;
 
+    public override void _Ready()
+    {
+        base._Ready();
+
+        Visible = false;
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
