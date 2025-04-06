@@ -273,23 +273,24 @@ public partial class Chariot : Node3D
 
             QueueFree();
         }
-    }
-
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
 
         // tentacle movement
         var tentacle = this.FindChildByName<Node3D>("RightArmTentacle");
+        var targetLength = 1f;
 
         if (TentacleTarget != null && IsInstanceValid(TentacleTarget))
         {
             tentacle.LookAt(TentacleTarget.GlobalPosition);
+            targetLength = tentacle.GlobalPosition.DistanceTo(TentacleTarget.GlobalPosition);
         }
         else
         {
             tentacle.RotationDegrees = new Vector3(-99, 0, 0);
+            targetLength = 1;
         }
+
+        var tentacleExtender = this.FindChildByName<Node3D>("RightArmTentacleScale");
+        tentacleExtender.Scale = new Vector3(1, 1, tentacleExtender.Scale.Z * .85f + targetLength * .15f);
 
         TentacleTargetTime -= (float)delta;
 
@@ -297,6 +298,13 @@ public partial class Chariot : Node3D
         {
             TentacleTarget = null;
         }
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+
+
     }
 
     public override void _Input(InputEvent @event)
