@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bw57o6gv6dk2t"]
+[gd_scene load_steps=14 format=3 uid="uid://bw57o6gv6dk2t"]
 
 [ext_resource type="Script" uid="uid://bko2rshwpd141" path="res://actors/Chariot.cs" id="1_qacet"]
 [ext_resource type="Script" uid="uid://lt22yngnw3h7" path="res://components/Storage.cs" id="2_5cu25"]
@@ -20,8 +20,6 @@ size = Vector3(4, 0.8, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ssdiv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ssdiv"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_5cu25"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfql6"]
 albedo_color = Color(0.0599607, 0.274772, 0, 1)
@@ -115,19 +113,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
 shape = SubResource("SphereShape3D_ssdiv")
 
 [node name="DriverHeadMesh" type="MeshInstance3D" parent="DriverHead"]
-visible = false
-mesh = SubResource("SphereMesh_5cu25")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="driver_head" parent="DriverHead/DriverHeadMesh" instance=ExtResource("5_qyetx")]
+transform = Transform3D(-1.22716e-08, 0, -0.280741, 0, 0.280741, 0, 0.280741, 0, -1.22716e-08, 0, 0, 0)
+
+[node name="Cube" parent="DriverHead/DriverHeadMesh/driver_head" index="0"]
+material_override = SubResource("StandardMaterial3D_jfql6")
 
 [node name="MainBodyBuoyancy" type="Node" parent="DriverHead"]
 script = ExtResource("2_ssdiv")
 Amount = 100.0
-
-[node name="driver_head" parent="DriverHead" instance=ExtResource("5_qyetx")]
-transform = Transform3D(-1.22716e-08, 0, -0.280741, 0, 0.280741, 0, 0.280741, 0, -1.22716e-08, 0, 0, 0)
-
-[node name="Cube" parent="DriverHead/driver_head" index="0"]
-material_override = SubResource("StandardMaterial3D_jfql6")
 
 [node name="DriverHeadAttachment" type="Generic6DOFJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08834, 0)
@@ -141,4 +137,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07366, 0)
 transform = Transform3D(1, 0, 0, 0, 0.980802, 0.195005, 0, -0.195005, 0.980802, 0, 0.740862, 10.3097)
 current = true
 
-[editable path="DriverHead/driver_head"]
+[editable path="DriverHead/DriverHeadMesh/driver_head"]
