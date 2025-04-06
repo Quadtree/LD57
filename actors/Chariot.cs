@@ -246,20 +246,22 @@ public partial class Chariot : Node3D
             Util.SpawnOneShotParticleSystem(GD.Load<PackedScene>("res://particles/ChariotExplosion.tscn"), this, MainBodyPos);
             var cam2 = this.FindChildByType<Camera3D>();
 
-            cam2.Reparent(GetTree().CurrentScene);
+            var curScene = GetTree().CurrentScene;
+            var tree = GetTree();
 
-            Util.StartOneShotTimer(GetTree().CurrentScene, 3, () =>
+            cam2.Reparent(curScene);
+
+            Util.StartOneShotTimer(curScene, 3, () =>
             {
                 try
                 {
-                    GD.Print($"Reloading current scene {GetTree().CurrentScene.SceneFilePath}");
+                    GD.Print($"Reloading current scene {curScene.SceneFilePath}");
+                    tree.ReloadCurrentScene();
                 }
                 catch (Exception err)
                 {
                     GD.PushWarning(err);
                 }
-
-                //GetTree().ReloadCurrentScene();
             });
 
             QueueFree();
