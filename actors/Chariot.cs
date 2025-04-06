@@ -52,8 +52,11 @@ public partial class Chariot : Node3D
     float OriginalHorseMass = 0;
     float OriginalTotalNonHorseMass = 0;
 
-    public static int KelpCollected = 0;
-    public static int SuperGemsCollected = 0;
+    public static int KelpCollectedTotal = 0;
+    public static int SuperGemsCollectedTotal = 0;
+
+    public int KelpCollectedThisLevel = 0;
+    public int SuperGemsCollectedThisLevel = 0;
 
     Node3D TentacleTarget;
 

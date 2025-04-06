@@ -33,3 +33,11 @@ texture_progress = ExtResource("2_f6rvb")
 tint_under = Color(0.059126, 0.0591259, 0.0591259, 1)
 tint_over = Color(0.52549, 1, 0.501961, 1)
 tint_progress = Color(0.52549, 1, 0.501961, 1)
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 949.0
+offset_bottom = 188.0
+text = "Depth: 100m    Kelp: 0/0     Gems: 0/0    Time: 0:00/3:00"

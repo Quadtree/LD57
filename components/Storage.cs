@@ -7,8 +7,11 @@ public partial class Storage : RigidBody3D
     {
         Mass += g.Mass;
 
-        Chariot.KelpCollected += g.ValueInKelp;
-        Chariot.SuperGemsCollected += g.ValueInSuperGems;
+        Chariot.KelpCollectedTotal += g.ValueInKelp;
+        Chariot.SuperGemsCollectedTotal += g.ValueInSuperGems;
+
+        this.FindParentByType<Chariot>().KelpCollectedThisLevel += g.ValueInKelp;
+        this.FindParentByType<Chariot>().SuperGemsCollectedThisLevel += g.ValueInSuperGems;
 
         g.QueueFree();
     }
