@@ -30,6 +30,8 @@ mesh = SubResource("SphereMesh_t2gkd")
 
 [node name="ThoughtText" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97787, 5.35157, 0.590924)
+modulate = Color(0.517647, 1, 0.505882, 1)
 text = "Thinking! Thinking!
 Lorem ipsum etc"
 font_size = 128
+outline_size = 24
