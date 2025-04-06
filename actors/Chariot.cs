@@ -178,6 +178,9 @@ public partial class Chariot : Node3D
             CurrentlyGrabbed.AxisLockLinearY = false;
             CurrentlyGrabbed.AxisLockAngularZ = false;
 
+            TentacleTarget = CurrentlyGrabbed;
+            TentacleTargetTime = 0.1f;
+
             var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
             if (distToHead > GrabRange)
             {
@@ -338,6 +341,8 @@ public partial class Chariot : Node3D
                             {
                                 GD.Print($"SLAPPED {nearestShark}");
                                 SlapCooldownLeft = SlapCooldown;
+                                TentacleTarget = nearestShark;
+                                TentacleTargetTime = 0.4f;
 
                                 Util.StartOneShotTimer(this, 0.2f, () =>
                                 {
