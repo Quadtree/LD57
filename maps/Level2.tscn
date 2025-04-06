@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnhu43fbkpe31" path="res://actors/LevelBounds.tscn" id="6_voapu"]
 
 [node name="Default" instance=ExtResource("1_d61pv")]
+StartingDepth = 100.0
 
 [node name="Chariot" parent="." index="0"]
 LightEnabled = true

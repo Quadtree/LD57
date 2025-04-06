@@ -7,13 +7,15 @@ public partial class Default : Node3D
     float StartingDepth;
 
     [Export]
-    int KelpPar;
+    public int KelpPar;
 
     [Export]
-    int SuperGemsPar;
+    public int SuperGemsPar;
 
     [Export]
-    int TimeParSeconds;
+    public int TimeParSeconds;
+
+    public float TimeElapsed;
 
     float YAtStartingDepth;
 
@@ -24,7 +26,7 @@ public partial class Default : Node3D
             var chariot = this.FindChildByType<Chariot>();
             if (chariot != null)
             {
-                return chariot.MainBodyPos.Y - YAtStartingDepth + StartingDepth;
+                return -chariot.MainBodyPos.Y + YAtStartingDepth + StartingDepth;
             }
             else
             {
@@ -38,5 +40,12 @@ public partial class Default : Node3D
         base._Ready();
 
         YAtStartingDepth = this.FindChildByType<Chariot>().MainBodyPos.Y;
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+
+        TimeElapsed += (float)delta;
     }
 }

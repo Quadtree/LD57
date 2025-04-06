@@ -17,5 +17,26 @@ public partial class InGameUi : Control
         {
             this.FindChildByName<TextureProgressBar>("HealthBar").Visible = false;
         }
+
+        var level = GetTree().Root.FindChildByType<Default>();
+
+        if (level != null && chariot != null)
+        {
+            var statusText = "";
+
+            statusText += $"Depth: {(int)level.CurrentDepth}m";
+
+            if (level.KelpPar > 0) statusText += $"    Kelp: {chariot.KelpCollectedThisLevel}/{level.KelpPar}";
+            if (level.SuperGemsPar > 0) statusText += $"    Gems: {chariot.SuperGemsCollectedThisLevel}/{level.SuperGemsPar}";
+
+            statusText += $"    {FormatSeconds((int)level.TimeElapsed)}/{FormatSeconds(level.TimeParSeconds)}";
+
+            this.FindChildByName<Label>("StatusLabel").Text = statusText;
+        }
+    }
+
+    private static string FormatSeconds(int seconds)
+    {
+        return $"{seconds / 60}:{seconds % 60:00}";
     }
 }
