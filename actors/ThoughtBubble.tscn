@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cngt8hlcp25fm"]
+[gd_scene load_steps=3 format=3 uid="uid://cngt8hlcp25fm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2gkd"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.368627)
+roughness = 0.0
+rim_tint = 1.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_t2gkd"]
+material = SubResource("StandardMaterial3D_t2gkd")
 
 [node name="ThoughtBubble" type="Node3D"]
 
@@ -16,11 +25,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26971, 2.02502, 0)
 mesh = SubResource("SphereMesh_t2gkd")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.4653, 0, 0, 0, 4.80708, 0, 0, 0, 1, 2.13481, 5.24586, 0)
+transform = Transform3D(15.122, 0, 0, 0, 5.71807, 0, 0, 0, 1, 2.13481, 5.43373, 0)
 mesh = SubResource("SphereMesh_t2gkd")
 
 [node name="ThoughtText" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97787, 5.35157, 0.590924)
 text = "Thinking! Thinking!
 Lorem ipsum etc"
-font_size = 96
+font_size = 128
