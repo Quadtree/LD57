@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://clu26hv4bl4ut"]
+[gd_scene load_steps=5 format=3 uid="uid://clu26hv4bl4ut"]
 
 [ext_resource type="PackedScene" uid="uid://d0toho80wwnv2" path="res://actors/Grabbable.tscn" id="1_xw1i2"]
+[ext_resource type="PackedScene" uid="uid://bb0ms3xx01rds" path="res://meshes/kelp.glb" id="2_tnyp1"]
+[ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="3_baiq1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ulao"]
+albedo_color = Color(0.509804, 1, 0.521569, 1)
+albedo_texture = ExtResource("3_baiq1")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0
 
 [node name="Grabbable" instance=ExtResource("1_xw1i2")]
 mass = 8.0
 InitiallyFrozen = true
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="kelp" parent="MeshInstance3D" index="0" instance=ExtResource("2_tnyp1")]
+transform = Transform3D(0.148033, 0, 0, 0, 0.148033, 0, 0, 0, 0.148033, -0.00524586, -0.713402, 0.508253)
+
+[node name="Cube" parent="MeshInstance3D/kelp" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3ulao")
+
+[editable path="MeshInstance3D/kelp"]
