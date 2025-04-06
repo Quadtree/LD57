@@ -9,8 +9,6 @@
 # TODO
 
 # Sunday
-- Add win screen
-- Add lose screen
 - Name
 - Sounds
 - Change death method when you go too high to excessive light
@@ -39,3 +37,5 @@
 - Different light levels at different depths
 - Add in level select
 - Add title screen
+- Add win screen
+- Add lose screen
