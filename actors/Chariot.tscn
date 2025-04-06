@@ -16,6 +16,10 @@ size = Vector3(4, 0.8, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6du53"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfql6"]
+albedo_color = Color(0.0599607, 0.274772, 0, 1)
+albedo_texture = ExtResource("6_cnppn")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cu25"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6du53"]
@@ -34,10 +38,6 @@ albedo_texture = ExtResource("6_cnppn")
 texture_filter = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ssdiv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfql6"]
-albedo_color = Color(0.0599607, 0.274772, 0, 1)
-albedo_texture = ExtResource("6_cnppn")
 
 [node name="Chariot" type="Node3D"]
 script = ExtResource("1_qacet")
@@ -78,6 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780437, 0.355792)
 transform = Transform3D(-4.37114e-08, 0, -0.2, 0, 0.2, 0, 1, 0, -8.74228e-09, 0.00274369, -0.0106903, -0.46673)
 mesh = SubResource("BoxMesh_6du53")
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jfql6")
 
 [node name="RearStorage" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47343, 0, 0)
