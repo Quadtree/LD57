@@ -282,13 +282,13 @@ public partial class Chariot : Node3D
         // tentacle movement
         var tentacle = this.FindChildByName<Node3D>("RightArmTentacle");
 
-        if (TentacleTarget != null)
+        if (TentacleTarget != null && IsInstanceValid(TentacleTarget))
         {
             tentacle.LookAt(TentacleTarget.GlobalPosition);
         }
         else
         {
-            tentacle.Rotation = new Vector3(82, 0, 0);
+            tentacle.RotationDegrees = new Vector3(-99, 0, 0);
         }
 
         TentacleTargetTime -= (float)delta;

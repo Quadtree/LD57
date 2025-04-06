@@ -73,7 +73,7 @@ transform = Transform3D(-1.81075e-08, 0, -0.414252, 0, 0.414252, 0, 0.414252, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780437, 0.355792)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MainBody/RightArmTentacle"]
-transform = Transform3D(-4.37114e-08, 0, -0.2, 0, 0.2, 0, 1, 0, -8.74228e-09, 0.00274369, -0.0106903, 0.417599)
+transform = Transform3D(-4.37114e-08, 0, -0.2, 0, 0.2, 0, 1, 0, -8.74228e-09, 0.00274369, -0.0106903, -0.46673)
 mesh = SubResource("BoxMesh_6du53")
 skeleton = NodePath("../..")
 
