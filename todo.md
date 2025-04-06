@@ -9,8 +9,6 @@
 # TODO
 
 # Sunday
-
-- Change death method when you go too high to excessive light
 - Change death method when you hit the left wall to be an actual wall
 - Finish all pars
 - Music
@@ -41,3 +39,4 @@
 - Add win screen
 - Add lose screen
 - Sounds
+- Change death method when you go too high to excessive light
