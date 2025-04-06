@@ -1,5 +1,4 @@
 # TODO
-- Add in limit at the top of levels
 - Light coming on and off
 - Clear mission objectives
 - Final visuals: Chariot
@@ -27,3 +26,4 @@
 - Add in cave level. make sure the player needs to back up into something
 - Add in currents and sharks level
 - Add jets
+- Add in limit at the top of levels
