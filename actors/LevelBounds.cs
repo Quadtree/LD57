@@ -24,32 +24,37 @@ public partial class LevelBounds : Node3D
 
         Vector2 halfExtent = new Vector2(0.5f * Scale.X, 0.5f * Scale.Y);
 
+        var left = GlobalPosition.X - halfExtent.X;
+        var top = GlobalPosition.Y + halfExtent.Y;
+        var right = GlobalPosition.X + halfExtent.X;
+        var bottom = GlobalPosition.Y - halfExtent.Y;
+
         if (chariot != null)
         {
             StopSuperShark();
 
-            if (chariot.MainBodyPos.Y >= halfExtent.Y)
+            if (chariot.MainBodyPos.Y >= top)
             {
                 SicSuperShark();
             }
-            else if (chariot.MainBodyPos.X >= halfExtent.X)
+            else if (chariot.MainBodyPos.X >= right)
             {
                 WinLevel();
             }
-            else if (chariot.MainBodyPos.Y <= -halfExtent.Y)
+            else if (chariot.MainBodyPos.Y <= bottom)
             {
                 WinLevel();
             }
-            else if (chariot.MainBodyPos.X <= -halfExtent.X)
+            else if (chariot.MainBodyPos.X <= left)
             {
                 SicSuperShark();
             }
             // near the edge
-            else if (chariot.MainBodyPos.X <= -halfExtent.X + Slosh)
+            else if (chariot.MainBodyPos.X <= left + Slosh)
             {
                 SpawnSideDefense(new Vector3(-halfExtent.X - 5, chariot.MainBodyPos.Y, 0));
             }
-            else if (chariot.MainBodyPos.Y >= halfExtent.Y - Slosh)
+            else if (chariot.MainBodyPos.Y >= top - Slosh)
             {
                 SpawnSideDefense(new Vector3(chariot.MainBodyPos.X, halfExtent.Y + 5, 0));
             }
