@@ -23,7 +23,7 @@ public partial class LevelWinOverlay : Control
         if ((chariot?.KelpCollectedThisLevel ?? 0) < level.KelpPar) this.FindChildByName<Label>("KelpLabel").Modulate = Colors.Red;
 
         if (level.SuperGemsPar > 0)
-            this.FindChildByName<Label>("GemLabel").Text += $"Gems: {chariot?.SuperGemsCollectedThisLevel}/{level.SuperGemsPar}";
+            this.FindChildByName<Label>("GemLabel").Text = $"Gems: {chariot?.SuperGemsCollectedThisLevel}/{level.SuperGemsPar}";
         else
             this.FindChildByName<Label>("GemLabel").Visible = false;
 
