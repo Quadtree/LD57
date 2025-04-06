@@ -1,6 +1,5 @@
 # TODO
 - Final visuals: Tentacles
-- Final visuals: UI
 
 # Sunday
 - Different light levels at different depths
@@ -27,3 +26,4 @@
 - Final visuals: Chariot
 - Final visuals: Enemies
 - Final visuals: Pickups and scenery
+- Final visuals: UI
