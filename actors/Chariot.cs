@@ -52,6 +52,9 @@ public partial class Chariot : Node3D
     float OriginalHorseMass = 0;
     float OriginalTotalNonHorseMass = 0;
 
+    public static int KelpCollected = 0;
+    public static int SuperGemsCollected = 0;
+
     public override void _Ready()
     {
         base._Ready();

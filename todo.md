@@ -1,5 +1,4 @@
 # TODO
-- Light coming on and off
 - Clear mission objectives
 - Final visuals: Chariot
 - Final visuals: Enemies
@@ -27,3 +26,4 @@
 - Add in currents and sharks level
 - Add jets
 - Add in limit at the top of levels
+- Light coming on and off

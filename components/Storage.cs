@@ -8,6 +8,9 @@ public partial class Storage : RigidBody3D
         Mass += g.Mass;
         // @TODO: Change buoyancy
 
+        Chariot.KelpCollected += g.ValueInKelp;
+        Chariot.SuperGemsCollected += g.ValueInSuperGems;
+
         g.QueueFree();
     }
 }
