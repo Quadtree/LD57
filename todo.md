@@ -1,5 +1,6 @@
 # TODO
 - Add in limit at the top of levels
+- Light coming on and off
 - Clear mission objectives
 - Final visuals: Chariot
 - Final visuals: Enemies
