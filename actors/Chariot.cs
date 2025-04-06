@@ -243,7 +243,11 @@ public partial class Chariot : Node3D
 
         if (Health <= 0)
         {
-            Util.SpawnOneShotParticleSystem(GD.Load<PackedScene>("res://particles/ChariotExplosion.tscn"), this, GlobalPosition);
+            Util.SpawnOneShotParticleSystem(GD.Load<PackedScene>("res://particles/ChariotExplosion.tscn"), this, MainBodyPos);
+            var cam2 = this.FindChildByType<Camera3D>();
+
+            cam2.Reparent(GetTree().CurrentScene);
+
             QueueFree();
         }
     }
