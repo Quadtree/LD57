@@ -35,7 +35,7 @@ public partial class InGameUi : Control
         }
     }
 
-    private static string FormatSeconds(int seconds)
+    public static string FormatSeconds(int seconds)
     {
         return $"{seconds / 60}:{seconds % 60:00}";
     }

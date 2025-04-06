@@ -67,7 +67,10 @@ public partial class LevelBounds : Node3D
 
     public void WinLevel()
     {
-        GetTree().ChangeSceneToFile(NextLevel);
+        GetTree().Paused = true;
+        GetTree().CurrentScene.FindChildByType<CanvasLayer>().AddChild(GD.Load<PackedScene>("res://ui/LevelWinOverlay.tscn").Instantiate<Control>());
+
+        //GetTree().ChangeSceneToFile(NextLevel);
     }
 
     private void SicSuperShark()

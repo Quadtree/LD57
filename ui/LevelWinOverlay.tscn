@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://nf8s4rab3fl8"]
+[gd_scene load_steps=4 format=3 uid="uid://nf8s4rab3fl8"]
 
 [ext_resource type="LabelSettings" uid="uid://labhg7mcndnd" path="res://ui/labelsettings/biglabelsetting.tres" id="1_jb6ke"]
+[ext_resource type="Script" uid="uid://b3iav4qs1q5ed" path="res://ui/LevelWinOverlay.cs" id="1_v3job"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v3job"]
 font_size = 300
@@ -9,12 +10,14 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
 
 [node name="LevelWinOverlay" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v3job")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -52,7 +55,7 @@ text = "Gems Collected: 0/0"
 label_settings = ExtResource("1_jb6ke")
 horizontal_alignment = 1
 
-[node name="KelpLabel3" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="TimeLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Time: 0/0"
 label_settings = ExtResource("1_jb6ke")
