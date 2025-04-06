@@ -59,11 +59,23 @@ public partial class Default : Node3D
 
             if (CurrentDepth <= 15)
             {
-                lightEnergy += (25 - (CurrentDepth ?? 0)) * 2;
                 var chariot = this.FindChildByType<Chariot>();
+
+                if (this.FindChildByPredicate<Node3D>(it => it.HasMeta("light_warning")) == null)
+                {
+                    var thoughBubble = GD.Load<PackedScene>("res://actors/ThoughtBubble.tscn").Instantiate<Node3D>();
+                    thoughBubble.SetMeta("light_warning", "1");
+                    thoughBubble.Scale = new Vector3(.4f, .4f, .4f);
+                    GetTree().CurrentScene.AddChild(thoughBubble);
+                    thoughBubble.GlobalPosition = (chariot?.MainBodyPos ?? Vector3.Zero) + new Vector3(0, 5, 0);
+                    thoughBubble.FindChildByType<Label3D>().Text = "The daylight burns!\nI've got to get back to the depths!";
+                }
+
+                lightEnergy += (25 - (CurrentDepth ?? 0)) * 2;
+
                 if (chariot != null)
                 {
-                    chariot.Health -= 25 * (float)delta;
+                    chariot.Health -= 10 * (float)delta;
                 }
 
                 if (CurrentDepth <= 5)
