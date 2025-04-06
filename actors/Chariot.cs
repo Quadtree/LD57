@@ -249,7 +249,8 @@ public partial class Chariot : Node3D
             debugInfo += $" {dragForce.Length():0.00}";
         }
 
-        GetTree().CurrentScene.FindChildByName<Label>("DebugInfo").Text = debugInfo;
+        var debugInfoLabel = GetTree().CurrentScene.FindChildByName<Label>("DebugInfo");
+        if (debugInfoLabel != null) debugInfoLabel.Text = debugInfo;
 
         if (Health <= 0)
         {

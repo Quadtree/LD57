@@ -12,7 +12,14 @@ public partial class TitleScreen : Node3D
         for (var i = 0; i <= 4; ++i)
         {
             var li = i;
-            this.FindChildByName<Button>($"Level{i}Button").Pressed += () => { GetTree().Paused = false; GetTree().ChangeSceneToFile($"res://maps/Level{li}.tscn"); };
+            this.FindChildByName<Button>($"Level{i}Button").Pressed += () =>
+            {
+                GetTree().Paused = false;
+                Util.StartOneShotTimer(this, 1f, () =>
+                {
+                    GetTree().ChangeSceneToFile($"res://maps/Level{li}.tscn");
+                });
+            };
         }
     }
 }
