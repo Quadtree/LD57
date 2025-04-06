@@ -17,10 +17,14 @@ public partial class AggressiveFish : RigidBody3D
     Vector3 StartingPosition;
 
     [Export]
+    float BackOffTimeSetTo = 3;
+
+    [Export]
     float LeashRange;
 
     public bool Aggroed;
 
+    [Export]
     float SlapEffectiveness = 1;
 
     public bool IsSideDefense;
@@ -42,7 +46,7 @@ public partial class AggressiveFish : RigidBody3D
             if (chariot != null)
             {
                 chariot.Health -= DamagePerHit;
-                BackOffTime = 3;
+                BackOffTime = BackOffTimeSetTo;
             }
         };
 

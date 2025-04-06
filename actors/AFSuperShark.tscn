@@ -4,6 +4,8 @@
 
 [node name="AggressiveFish" instance=ExtResource("1_tkxk5")]
 Speed = 10.0
-DamagePerHit = 100.0
+DamagePerHit = 40.0
 AggroRange = 0.0
+BackOffTimeSetTo = 0.75
 LeashRange = 10000.0
+SlapEffectiveness = 0.0

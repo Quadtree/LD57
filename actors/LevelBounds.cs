@@ -16,6 +16,8 @@ public partial class LevelBounds : Node3D
 
         if (chariot != null)
         {
+            StopSuperShark();
+
             if (chariot.MainBodyPos.Y >= halfExtent.Y)
             {
                 SicSuperShark();
@@ -35,8 +37,14 @@ public partial class LevelBounds : Node3D
     private void SicSuperShark()
     {
         var superShark = GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense);
-        superShark.Aggroed = true;
-        GD.Print("Siccing super shark!!!");
+        if (superShark != null) superShark.Aggroed = true;
+        //GD.Print("Siccing super shark!!!");
+    }
+
+    private void StopSuperShark()
+    {
+        var superShark = GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense);
+        if (superShark != null) superShark.Aggroed = false;
     }
 
 
