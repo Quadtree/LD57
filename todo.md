@@ -1,5 +1,4 @@
 # TODO
-- Final visuals: Tentacles
 
 # Sunday
 - Different light levels at different depths
@@ -7,6 +6,7 @@
 - Add title screen
 - Add win screen
 - Add lose screen
+- Name
 - Sounds
 - Music
 
@@ -27,3 +27,4 @@
 - Final visuals: Enemies
 - Final visuals: Pickups and scenery
 - Final visuals: UI
+- Final visuals: Tentacles
