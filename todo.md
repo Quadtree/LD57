@@ -1,6 +1,5 @@
 # TODO
 - Final visuals: Tentacles
-- Final visuals: Pickups and scenery
 - Final visuals: UI
 
 # Sunday
@@ -27,3 +26,4 @@
 - Clear mission objectives
 - Final visuals: Chariot
 - Final visuals: Enemies
+- Final visuals: Pickups and scenery
