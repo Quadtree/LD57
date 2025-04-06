@@ -13,6 +13,7 @@ texture_filter = 0
 [node name="Grabbable" instance=ExtResource("1_xw1i2")]
 mass = 8.0
 InitiallyFrozen = true
+ValueInKelp = 1
 
 [node name="MeshInstance3D" parent="." index="1"]
 mesh = null

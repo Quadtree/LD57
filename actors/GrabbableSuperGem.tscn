@@ -14,6 +14,7 @@ emission = Color(0, 1, 0, 1)
 
 [node name="Grabbable" instance=ExtResource("1_upuue")]
 mass = 40.0
+ValueInSuperGems = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = null
