@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://coht7alw4tcw8"]
+[gd_scene load_steps=6 format=3 uid="uid://coht7alw4tcw8"]
 
 [ext_resource type="Script" uid="uid://bmg8dbq4fix5x" path="res://actors/PassiveFish.cs" id="1_ipe4i"]
+[ext_resource type="PackedScene" uid="uid://belm45nfc4k6t" path="res://meshes/shark2.glb" id="2_8cnmx"]
+[ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="3_h7ydq"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dugpj"]
-radius = 1.0
-height = 6.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm5j3"]
+albedo_color = Color(0.823529, 0.764706, 1, 1)
+albedo_texture = ExtResource("3_h7ydq")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ipe4i"]
 radius = 1.0
@@ -23,8 +25,15 @@ Acceleration = 1000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_dugpj")
+
+[node name="shark2" parent="MeshInstance3D" instance=ExtResource("2_8cnmx")]
+transform = Transform3D(-3.25381e-08, 0.710175, -2.4059e-10, -3.24217e-08, 2.27828e-10, 0.741775, 0.743884, 3.10392e-08, 3.23635e-08, 0.00147996, -1.24954, -0.00132765)
+
+[node name="Cube" parent="MeshInstance3D/shark2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lm5j3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ipe4i")
+
+[editable path="MeshInstance3D/shark2"]

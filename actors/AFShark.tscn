@@ -7,3 +7,5 @@ Speed = 7.0
 DamagePerHit = 15.0
 AggroRange = 15.0
 LeashRange = 40.0
+
+[editable path="MeshInstance3D/shark"]

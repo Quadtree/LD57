@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://lt22yngnw3h7" path="res://components/Storage.cs" id="2_5cu25"]
 [ext_resource type="PackedScene" uid="uid://wyodwkp7ngmu" path="res://meshes/chariot1.tscn" id="2_a34f3"]
 [ext_resource type="Script" uid="uid://dkt05lsy0iog6" path="res://components/Buoyancy.cs" id="2_ssdiv"]
+[ext_resource type="PackedScene" uid="uid://belm45nfc4k6t" path="res://meshes/shark2.glb" id="4_jfql6"]
 [ext_resource type="PackedScene" uid="uid://di3mtx7en63lg" path="res://meshes/driver_head.glb" id="5_qyetx"]
 [ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="6_cnppn"]
 
@@ -15,9 +16,8 @@ size = Vector3(4, 0.8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cu25"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qacet"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ssdiv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6du53"]
+size = Vector3(2, 2, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ssdiv"]
 
@@ -94,10 +94,13 @@ mass = 10.0
 gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SeaHorse"]
-shape = SubResource("SphereShape3D_qacet")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40824, 0, 0)
+shape = SubResource("BoxShape3D_6du53")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SeaHorse"]
-mesh = SubResource("SphereMesh_ssdiv")
+
+[node name="shark2" parent="SeaHorse/MeshInstance3D" instance=ExtResource("4_jfql6")]
+transform = Transform3D(0.0185777, 0, -0.234395, 0, 0.735955, 0, 0.364839, 0, 0.0119355, 0.823134, 0, 0)
 
 [node name="SeaHorseAttachment" type="ConeTwistJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04528, 0.00561166, -0.00112915)
@@ -137,4 +140,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07366, 0)
 transform = Transform3D(1, 0, 0, 0, 0.980802, 0.195005, 0, -0.195005, 0.980802, 0, 0.740862, 10.3097)
 current = true
 
+[editable path="SeaHorse/MeshInstance3D/shark2"]
 [editable path="DriverHead/DriverHeadMesh/driver_head"]
