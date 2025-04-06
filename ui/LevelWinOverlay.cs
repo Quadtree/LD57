@@ -10,6 +10,7 @@ public partial class LevelWinOverlay : Control
         this.FindChildByName<Button>("ReplayLevelButton").Pressed += () => { GetTree().Paused = false; GetTree().ReloadCurrentScene(); };
         this.FindChildByName<Button>("ContinueButton").Pressed += () => { GetTree().Paused = false; GetTree().ChangeSceneToFile(GetTree().CurrentScene.FindChildByType<LevelBounds>().NextLevel); };
 
+        if (GetTree().CurrentScene.FindChildByType<LevelBounds>().NextLevel == "res://maps/TitleScreen.tscn") this.FindChildByName<Button>("ContinueButton").Text = "Finish Game";
 
         var level = GetTree().Root.FindChildByType<Default>();
         var chariot = GetTree().Root.FindChildByType<Chariot>();

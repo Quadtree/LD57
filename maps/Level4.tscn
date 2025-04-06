@@ -40,3 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2098, -76.3925, -0.151793)
 
 [node name="LevelBounds" parent="." index="10" instance=ExtResource("6_gtcgp")]
 transform = Transform3D(247.127, 0, 0, 0, 269.158, 0, 0, 0, 1, 97.8665, -24.8705, -7.12502)
+NextLevel = "res://maps/TitleScreen.tscn"
