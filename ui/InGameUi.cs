@@ -33,6 +33,8 @@ public partial class InGameUi : Control
 
             this.FindChildByName<Label>("StatusLabel").Text = statusText;
         }
+
+        this.FindChildByName<Label>("StatusLabel").Visible = Default.EnableCheats;
     }
 
     public static string FormatSeconds(int seconds)

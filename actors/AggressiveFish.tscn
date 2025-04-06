@@ -38,6 +38,7 @@ shape = SubResource("CapsuleShape3D_n003q")
 
 [node name="Info" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.440545)
+visible = false
 text = "DEBUG INFORMATION"
 
 [editable path="MeshInstance3D/shark"]
