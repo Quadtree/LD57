@@ -9,6 +9,9 @@
 
 [node name="Default" instance=ExtResource("1_3vj70")]
 
+[node name="Chariot" parent="." index="0"]
+LightEnabled = true
+
 [node name="level4" parent="." index="3" instance=ExtResource("2_0ko7p")]
 transform = Transform3D(-4.37114e-08, 5, -2.18557e-07, 0, -2.18557e-07, -5, -1, -2.18557e-07, 9.55343e-15, 95.3542, -16.742, 0)
 

@@ -60,6 +60,14 @@ public partial class Chariot : Node3D
         {
             foreach (var it in this.FindChildrenByType<OmniLight3D>()) it.Visible = true;
         }
+        else
+        {
+            var minst = this.FindChildByName<MeshInstance3D>("Cube_003");
+            if (minst.GetActiveMaterial(0) is StandardMaterial3D mat)
+            {
+                mat.EmissionEnabled = false;
+            }
+        }
 
         this.FindChildByName<Node>("DriverHead").FindChildByType<Buoyancy>().Amount = Util.Clamp(StartingMainBuoyancy, MinBuoyancy, MaxBuoyancy);
 
