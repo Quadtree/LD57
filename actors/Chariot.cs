@@ -177,13 +177,6 @@ public partial class Chariot : Node3D
 
         if (CurrentlyGrabbed != null)
         {
-            CurrentlyGrabbed.AxisLockLinearX = false;
-            CurrentlyGrabbed.AxisLockLinearY = false;
-            CurrentlyGrabbed.AxisLockAngularZ = false;
-
-            TentacleTarget = CurrentlyGrabbed;
-            TentacleTargetTime = 0.1f;
-
             var distToHead = head.GlobalPosition.DistanceTo(CurrentlyGrabbed.GlobalPosition);
             if (distToHead > GrabRange)
             {
@@ -192,6 +185,13 @@ public partial class Chariot : Node3D
             }
             else
             {
+                CurrentlyGrabbed.AxisLockLinearX = false;
+                CurrentlyGrabbed.AxisLockLinearY = false;
+                CurrentlyGrabbed.AxisLockAngularZ = false;
+
+                TentacleTarget = CurrentlyGrabbed;
+                TentacleTargetTime = 0.1f;
+
                 var cursorPosition = Picking.PickPlaneAtCursor(this, new Plane(
                     new Vector3(0, 0, 0),
                     new Vector3(1, 0, 0),
