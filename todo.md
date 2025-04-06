@@ -8,6 +8,7 @@
 - Add lose screen
 - Name
 - Sounds
+- Make it more obvious that we're underwater
 - Music
 
 # DONE
