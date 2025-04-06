@@ -9,6 +9,8 @@
 # TODO
 
 # Sunday
+- Fix light doesn't seem to work
+- Fix last level too hard
 - Name
 
 # DONE
