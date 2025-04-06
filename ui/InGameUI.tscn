@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://q6vpblo7vdo7"]
+[gd_scene load_steps=4 format=3 uid="uid://q6vpblo7vdo7"]
 
 [ext_resource type="Script" uid="uid://duc6shop0alog" path="res://ui/InGameUi.cs" id="1_8qqss"]
 [ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="2_f6rvb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6rvb"]
+font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="InGameUI" type="Control"]
 layout_mode = 3
@@ -41,3 +46,4 @@ offset_top = 110.0
 offset_right = 949.0
 offset_bottom = 188.0
 text = "Depth: 100m    Kelp: 0/0     Gems: 0/0    Time: 0:00/3:00"
+label_settings = SubResource("LabelSettings_f6rvb")
