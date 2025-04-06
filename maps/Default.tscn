@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0wugrg4vvuqa"]
+[gd_scene load_steps=5 format=3 uid="uid://c0wugrg4vvuqa"]
 
 [ext_resource type="Script" uid="uid://stnp8ekjtqne" path="res://maps/Default.cs" id="1_6jlvn"]
 [ext_resource type="PackedScene" uid="uid://bw57o6gv6dk2t" path="res://actors/Chariot.tscn" id="3_hlrh3"]
 [ext_resource type="PackedScene" uid="uid://q6vpblo7vdo7" path="res://ui/InGameUI.tscn" id="5_vnah1"]
+
+[sub_resource type="Environment" id="Environment_hlrh3"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.3
 
 [node name="Default" type="Node3D"]
 script = ExtResource("1_6jlvn")
@@ -18,3 +23,6 @@ shadow_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource("5_vnah1")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hlrh3")
