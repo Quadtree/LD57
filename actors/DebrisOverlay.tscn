@@ -16,7 +16,7 @@ noise = SubResource("FastNoiseLite_j8sy8")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi1lb"]
 transparency = 1
 albedo_texture = SubResource("NoiseTexture2D_sqm3h")
-uv1_scale = Vector3(2, 2, 2)
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="QuadMesh" id="QuadMesh_e8gub"]
 material = SubResource("StandardMaterial3D_yi1lb")
@@ -25,5 +25,5 @@ material = SubResource("StandardMaterial3D_yi1lb")
 script = ExtResource("1_j8sy8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0.964978)
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 40, 0, 0, 0.964978)
 mesh = SubResource("QuadMesh_e8gub")
