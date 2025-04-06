@@ -1,6 +1,4 @@
 # TODO
-- Clear mission objectives
-- Final visuals: Chariot
 - Final visuals: Enemies
 - Final visuals: Tentacles
 - Final visuals: Pickups and scenery
@@ -27,3 +25,5 @@
 - Add jets
 - Add in limit at the top of levels
 - Light coming on and off
+- Clear mission objectives
+- Final visuals: Chariot
