@@ -9,7 +9,6 @@
 # TODO
 
 # Sunday
-- Fix last level too hard
 - Name
 
 # DONE
@@ -42,3 +41,4 @@
 - Music
 - Make it more obvious that we're underwater
 - Fix light doesn't seem to work
+- Fix last level too hard
