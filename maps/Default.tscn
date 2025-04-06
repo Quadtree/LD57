@@ -20,10 +20,12 @@ fog_depth_end = 12.0
 albedo_texture = ExtResource("4_gfcby")
 emission_enabled = true
 emission_texture = ExtResource("4_gfcby")
+uv1_scale = Vector3(3, 3, 3)
 texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_o8hxr"]
 material = SubResource("StandardMaterial3D_vnah1")
+size = Vector2(3, 3)
 
 [node name="Default" type="Node3D"]
 script = ExtResource("1_6jlvn")
