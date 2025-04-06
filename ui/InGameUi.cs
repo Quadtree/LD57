@@ -7,6 +7,6 @@ public partial class InGameUi : Control
     {
         base._Process(delta);
 
-        this.FindChildByName<ProgressBar>("HealthBar").Value = GetTree().CurrentScene.FindChildByName<Chariot>("Chariot").Health;
+        this.FindChildByName<TextureProgressBar>("HealthBar").Value = GetTree().CurrentScene.FindChildByName<Chariot>("Chariot").Health;
     }
 }

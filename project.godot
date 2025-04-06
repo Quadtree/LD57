@@ -29,6 +29,10 @@ project/assembly_name="LD57"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom_font="uid://dk23ho75u6ea"
+
 [input]
 
 move_left={

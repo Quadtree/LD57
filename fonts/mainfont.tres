@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dk23ho75u6ea"]
+
+[ext_resource type="FontFile" uid="uid://q1xlsh1m4cg1" path="res://fonts/EBGaramond-VariableFont_wght.ttf" id="1_vqjoq"]
+
+[resource]
+base_font = ExtResource("1_vqjoq")
+variation_embolden = 0.2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://q6vpblo7vdo7"]
+[gd_scene load_steps=3 format=3 uid="uid://q6vpblo7vdo7"]
 
 [ext_resource type="Script" uid="uid://duc6shop0alog" path="res://ui/InGameUi.cs" id="1_8qqss"]
+[ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="2_f6rvb"]
 
 [node name="InGameUI" type="Control"]
 layout_mode = 3
@@ -11,14 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8qqss")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 30.0
-offset_right = 951.0
-offset_bottom = 92.0
-value = 50.0
-
 [node name="DebugInfo" type="Label" parent="."]
 layout_mode = 0
 offset_left = 2972.0
@@ -26,3 +19,17 @@ offset_top = 29.0
 offset_right = 3468.0
 offset_bottom = 379.0
 text = "DEBUG INFO"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 32.0
+offset_right = 950.0
+offset_bottom = 92.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_f6rvb")
+texture_progress = ExtResource("2_f6rvb")
+tint_under = Color(0.059126, 0.0591259, 0.0591259, 1)
+tint_over = Color(0.52549, 1, 0.501961, 1)
+tint_progress = Color(0.52549, 1, 0.501961, 1)
