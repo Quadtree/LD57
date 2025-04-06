@@ -19,9 +19,11 @@ public partial class AggressiveFish : RigidBody3D
     [Export]
     float LeashRange;
 
-    bool Aggroed;
+    public bool Aggroed;
 
     float SlapEffectiveness = 1;
+
+    public bool IsSideDefense;
 
     public override void _Ready()
     {

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxg8052h6lnmq"]
+
+[ext_resource type="PackedScene" uid="uid://df8d7ahwr5o2h" path="res://actors/AggressiveFish.tscn" id="1_tkxk5"]
+
+[node name="AggressiveFish" instance=ExtResource("1_tkxk5")]
+Speed = 25.0
+DamagePerHit = 100.0
+AggroRange = 0.0
+LeashRange = 10000.0

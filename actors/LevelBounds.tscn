@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://dnhu43fbkpe31"]
+[gd_scene load_steps=3 format=3 uid="uid://dnhu43fbkpe31"]
+
+[ext_resource type="Script" uid="uid://dd0rj5susgqdr" path="res://actors/LevelBounds.cs" id="1_ooxjq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8pvvq"]
 
 [node name="LevelBounds" type="Node3D"]
+script = ExtResource("1_ooxjq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8pvvq")
