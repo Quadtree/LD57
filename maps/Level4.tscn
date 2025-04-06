@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://wwxhm3deem8u"]
+[gd_scene load_steps=6 format=3 uid="uid://wwxhm3deem8u"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_3vj70"]
 [ext_resource type="PackedScene" uid="uid://ds7xy5cv3rklv" path="res://meshes/level_4_col.tscn" id="2_0ko7p"]
 [ext_resource type="PackedScene" uid="uid://cyglbocp31he8" path="res://actors/GrabbableSuperGem.tscn" id="3_ww80l"]
 [ext_resource type="PackedScene" uid="uid://b2k48ro3cn88g" path="res://actors/AFSunFish.tscn" id="4_jjb40"]
+[ext_resource type="PackedScene" uid="uid://bcw2u68s2ifj0" path="res://actors/WaterJet.tscn" id="5_8i3jj"]
 
 [node name="Default" instance=ExtResource("1_3vj70")]
 
@@ -23,3 +24,6 @@ LeashRange = 1000.0
 
 [node name="Grabbable3" parent="." index="7" instance=ExtResource("3_ww80l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84048, 1.22525, 0.141479)
+
+[node name="WaterJet" parent="." index="8" instance=ExtResource("5_8i3jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87151, -1.04528, -0.163362)
