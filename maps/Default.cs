@@ -57,6 +57,21 @@ public partial class Default : Node3D
 
             var lightEnergy = Util.Clamp(1.2f - (camDepth / 100), 0.05f, 1);
 
+            if (CurrentDepth <= 15)
+            {
+                lightEnergy += (25 - (CurrentDepth ?? 0)) * 2;
+                var chariot = this.FindChildByType<Chariot>();
+                if (chariot != null)
+                {
+                    chariot.Health -= 25 * (float)delta;
+                }
+
+                if (CurrentDepth <= 5)
+                {
+                    chariot.Health -= 1000 * (float)delta;
+                }
+            }
+
             this.FindChildByType<DirectionalLight3D>().LightEnergy = lightEnergy;
             this.FindChildByType<WorldEnvironment>().Environment.AmbientLightEnergy = 0.4f * lightEnergy;
             //GD.Print($"Light energy {lightEnergy}");

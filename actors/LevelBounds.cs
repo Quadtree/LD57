@@ -33,11 +33,7 @@ public partial class LevelBounds : Node3D
         {
             StopSuperShark();
 
-            if (chariot.MainBodyPos.Y >= top)
-            {
-                SicSuperShark();
-            }
-            else if (chariot.MainBodyPos.X >= right)
+            if (chariot.MainBodyPos.X >= right)
             {
                 WinLevel();
             }
@@ -53,10 +49,6 @@ public partial class LevelBounds : Node3D
             else if (chariot.MainBodyPos.X <= left + Slosh)
             {
                 SpawnSideDefense(new Vector3(left - 5, chariot.MainBodyPos.Y, 0));
-            }
-            else if (chariot.MainBodyPos.Y >= top - Slosh)
-            {
-                SpawnSideDefense(new Vector3(chariot.MainBodyPos.X, top + 5, 0));
             }
             else
             {
