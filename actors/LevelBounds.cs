@@ -31,11 +31,11 @@ public partial class LevelBounds : Node3D
             }
             else if (chariot.MainBodyPos.X >= halfExtent.X)
             {
-                SicSuperShark();
+                WinLevel();
             }
             else if (chariot.MainBodyPos.Y <= -halfExtent.Y)
             {
-                SicSuperShark();
+                WinLevel();
             }
             else if (chariot.MainBodyPos.X <= -halfExtent.X)
             {
@@ -50,19 +50,16 @@ public partial class LevelBounds : Node3D
             {
                 SpawnSideDefense(new Vector3(chariot.MainBodyPos.X, halfExtent.Y + 5, 0));
             }
-            else if (chariot.MainBodyPos.X >= halfExtent.X - Slosh)
-            {
-                SpawnSideDefense(new Vector3(halfExtent.X + 5, chariot.MainBodyPos.Y, 0));
-            }
-            else if (chariot.MainBodyPos.Y <= -halfExtent.Y + Slosh)
-            {
-                SpawnSideDefense(new Vector3(chariot.MainBodyPos.X, -halfExtent.Y - 5, 0));
-            }
             else
             {
                 GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense)?.QueueFree();
             }
         }
+    }
+
+    private void WinLevel()
+    {
+
     }
 
     private void SicSuperShark()
