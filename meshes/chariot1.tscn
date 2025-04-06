@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyodwkp7ngmu"]
+
+[ext_resource type="PackedScene" uid="uid://dsa1131vl2mf4" path="res://meshes/chariot1.glb" id="1_wqx3k"]
+
+[node name="chariot1" instance=ExtResource("1_wqx3k")]

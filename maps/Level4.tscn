@@ -32,6 +32,3 @@ MinForce = 20.0
 
 [node name="WaterJet2" parent="." index="9" instance=ExtResource("5_8i3jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2098, -76.3925, -0.151793)
-
-[node name="WaterJet3" parent="." index="10" instance=ExtResource("5_8i3jj")]
-transform = Transform3D(-0.993974, -0.109613, 0, 0.109613, -0.993974, 0, 0, 0, 1, 17.9554, -18.9368, -0.317803)
