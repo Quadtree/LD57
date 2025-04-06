@@ -11,7 +11,7 @@
 [node name="LevelBounds" type="Node3D"]
 script = ExtResource("1_ooxjq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ActualBackground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8pvvq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

@@ -13,7 +13,7 @@ public partial class LevelBounds : Node3D
     {
         base._Ready();
 
-        Visible = false;
+        this.FindChildByName<MeshInstance3D>("ActualBackground").Mesh = null;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -31,8 +31,6 @@ public partial class LevelBounds : Node3D
 
         if (chariot != null)
         {
-            StopSuperShark();
-
             if (chariot.MainBodyPos.X >= right)
             {
                 WinLevel();
@@ -40,19 +38,6 @@ public partial class LevelBounds : Node3D
             else if (chariot.MainBodyPos.Y <= bottom)
             {
                 WinLevel();
-            }
-            else if (chariot.MainBodyPos.X <= left)
-            {
-                SicSuperShark();
-            }
-            // near the edge
-            else if (chariot.MainBodyPos.X <= left + Slosh)
-            {
-                SpawnSideDefense(new Vector3(left - 5, chariot.MainBodyPos.Y, 0));
-            }
-            else
-            {
-                GetTree().CurrentScene.FindChildByPredicate<AggressiveFish>(it => it.IsSideDefense)?.QueueFree();
             }
         }
     }
