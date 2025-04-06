@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://rn7qvk6mks7e"]
+[gd_scene load_steps=7 format=3 uid="uid://rn7qvk6mks7e"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_12e6y"]
 [ext_resource type="PackedScene" uid="uid://dus8jp5dfo6ww" path="res://meshes/ter2.glb" id="2_1nfgi"]
+[ext_resource type="Material" uid="uid://cmp16rpqtpln8" path="res://materials/ground_mat.tres" id="3_as00d"]
 [ext_resource type="PackedScene" uid="uid://cngt8hlcp25fm" path="res://actors/ThoughtBubble.tscn" id="3_v3nxh"]
 [ext_resource type="PackedScene" uid="uid://dnhu43fbkpe31" path="res://actors/LevelBounds.tscn" id="4_sengc"]
 
@@ -21,6 +22,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, -0.0519013, 2.38419e-07, 0.01
 
 [node name="Plane" parent="StaticBody3D/ter2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0170479, 0, -0.00777435)
+surface_material_override/0 = ExtResource("3_as00d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, -0.000757694, 2.38419e-07, 0.00416495)

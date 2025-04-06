@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlstg3h852l8u"]
+[gd_scene load_steps=12 format=3 uid="uid://dlstg3h852l8u"]
 
 [ext_resource type="PackedScene" uid="uid://c0wugrg4vvuqa" path="res://maps/Default.tscn" id="1_irdkq"]
 [ext_resource type="PackedScene" uid="uid://2hu1vrdcnen7" path="res://meshes/level1.glb" id="2_egog4"]
 [ext_resource type="PackedScene" uid="uid://bneiq6a3hbyw2" path="res://meshes/outcropping_col.tscn" id="3_38qkg"]
+[ext_resource type="Material" uid="uid://cmp16rpqtpln8" path="res://materials/ground_mat.tres" id="3_snqvs"]
 [ext_resource type="PackedScene" uid="uid://coht7alw4tcw8" path="res://actors/PassiveFish.tscn" id="4_whog7"]
 [ext_resource type="PackedScene" uid="uid://diauaa8uuh8cg" path="res://actors/KelpPlant.tscn" id="5_4eddp"]
 [ext_resource type="PackedScene" uid="uid://b2k48ro3cn88g" path="res://actors/AFSunFish.tscn" id="6_okxmn"]
@@ -19,6 +20,9 @@ data = PackedVector3Array(-1, 1.3545, 3.4382, 1, 0, -1, 1, 1.3545, 3.4382, -1, 1
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 83.274, -18.2017, 0)
 
 [node name="level1" parent="StaticBody3D" index="0" instance=ExtResource("2_egog4")]
+
+[node name="Plane" parent="StaticBody3D/level1" index="0"]
+surface_material_override/0 = ExtResource("3_snqvs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
 shape = SubResource("ConcavePolygonShape3D_egog4")
