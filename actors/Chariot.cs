@@ -318,7 +318,9 @@ public partial class Chariot : Node3D
         if (@event is InputEventKey)
         {
             if (@event.IsActionPressed("exit_game")) GetTree().Quit();
+            if (@event.IsActionPressed("restart_level")) GetTree().ReloadCurrentScene();
             if (@event.IsActionPressed("cheat_self_destruct") && Default.EnableCheats) Health = 0;
+            if (@event.IsActionPressed("cheat_win_level") && Default.EnableCheats) GetTree().CurrentScene.FindChildByType<LevelBounds>().WinLevel();
         }
 
         if (@event is InputEventMouseButton)

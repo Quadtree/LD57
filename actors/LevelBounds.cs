@@ -65,7 +65,7 @@ public partial class LevelBounds : Node3D
         }
     }
 
-    private void WinLevel()
+    public void WinLevel()
     {
         GetTree().ChangeSceneToFile(NextLevel);
     }
