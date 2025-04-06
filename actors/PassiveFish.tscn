@@ -30,6 +30,7 @@ transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406,
 transform = Transform3D(-3.25381e-08, 0.710175, -2.4059e-10, -3.24217e-08, 2.27828e-10, 0.741775, 0.743884, 3.10392e-08, 3.23635e-08, 0.00147996, -1.24954, -0.00132765)
 
 [node name="Cube" parent="MeshInstance3D/shark2" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00428366, -0.00500194, 4.04327)
 surface_material_override/0 = SubResource("StandardMaterial3D_lm5j3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
