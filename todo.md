@@ -10,9 +10,9 @@
 
 # Sunday
 - Name
-- Sounds
 - Change death method when you go too high to excessive light
 - Change death method when you hit the left wall to be an actual wall
+- Finish all pars
 - Music
 - Make it more obvious that we're underwater
 
@@ -39,3 +39,4 @@
 - Add title screen
 - Add win screen
 - Add lose screen
+- Sounds
