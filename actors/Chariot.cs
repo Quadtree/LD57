@@ -180,7 +180,7 @@ public partial class Chariot : Node3D
                 GD.Print($"cursorPosition={cursorPosition}");
                 if (cursorPosition != null)
                 {
-                    var grabForce = (cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 160;
+                    var grabForce = (cursorPosition.Value - CurrentlyGrabbed.GlobalPosition).Normalized() * 160 * CurrentlyGrabbed.Mass / 8;
 
                     CurrentlyGrabbed.ApplyCentralForce(grabForce);
                     head.ApplyCentralForce(-grabForce);
