@@ -17,7 +17,7 @@ data = PackedVector3Array(-1, 1.3545, 3.4382, 1, 0, -1, 1, 1.3545, 3.4382, -1, 1
 [node name="Default" instance=ExtResource("1_irdkq")]
 StartingDepth = 60.0
 KelpPar = 4
-TimeParSeconds = 90
+TimeParSeconds = 60
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 83.274, -18.2017, 0)

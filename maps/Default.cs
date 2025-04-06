@@ -47,5 +47,21 @@ public partial class Default : Node3D
         base._Process(delta);
 
         TimeElapsed += (float)delta;
+
+        var cam = GetViewport().GetCamera3D();
+        if (cam != null)
+        {
+            var camDepth = -cam.GlobalPosition.Y + YAtStartingDepth + StartingDepth;
+
+            var lightEnergy = Util.Clamp(1.2f - (camDepth / 100), 0.05f, 1);
+
+            this.FindChildByType<DirectionalLight3D>().LightEnergy = lightEnergy;
+            this.FindChildByType<WorldEnvironment>().Environment.AmbientLightEnergy = 0.4f * lightEnergy;
+            GD.Print($"Light energy {lightEnergy}");
+        }
+        else
+        {
+            GD.PushWarning("Cant find camera?");
+        }
     }
 }
