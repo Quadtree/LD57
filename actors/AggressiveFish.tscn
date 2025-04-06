@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://df8d7ahwr5o2h"]
+[gd_scene load_steps=6 format=3 uid="uid://df8d7ahwr5o2h"]
 
 [ext_resource type="Script" uid="uid://vgj3snbfqu1h" path="res://actors/AggressiveFish.cs" id="1_n003q"]
+[ext_resource type="PackedScene" uid="uid://gwk23tqu72v8" path="res://meshes/shark.glb" id="2_3c22s"]
+[ext_resource type="Texture2D" uid="uid://wrotcpgex226" path="res://textures/grey1.png" id="3_0ffuy"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_j1syk"]
-radius = 0.3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p42n"]
+albedo_texture = ExtResource("3_0ffuy")
+texture_filter = 0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n003q"]
 radius = 0.3
@@ -22,7 +25,12 @@ LeashRange = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0011844, -0.999999, -0.00106251, 0.999999, 0.00118406, 0.000321231, -0.000319978, -0.00106289, 0.999999, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_j1syk")
+
+[node name="shark" parent="MeshInstance3D" instance=ExtResource("2_3c22s")]
+transform = Transform3D(-0.00159082, 0.185692, 0.000415228, -0.00444409, 0.000377052, -0.185645, -0.185639, -0.0016003, 0.00444068, -0.000279115, 0.235659, 0.000250391)
+
+[node name="Cube" parent="MeshInstance3D/shark" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0p42n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -31,3 +39,5 @@ shape = SubResource("CapsuleShape3D_n003q")
 [node name="Info" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.440545)
 text = "DEBUG INFORMATION"
+
+[editable path="MeshInstance3D/shark"]
