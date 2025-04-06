@@ -21,6 +21,7 @@ fog_depth_end = 10.0
 script = ExtResource("1_27tjf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
