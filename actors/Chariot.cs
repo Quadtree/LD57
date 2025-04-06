@@ -66,16 +66,22 @@ public partial class Chariot : Node3D
     {
         base._Ready();
 
+        // check the light
         if (LightEnabled)
         {
+            GD.Print("ENABLING the light");
             foreach (var it in this.FindChildrenByType<OmniLight3D>()) it.Visible = true;
         }
         else
         {
+            GD.Print("DISABLING the light");
             var minst = this.FindChildByName<MeshInstance3D>("Cube_003");
+
             if (minst.GetActiveMaterial(0) is StandardMaterial3D mat)
             {
-                mat.EmissionEnabled = false;
+                var matDup = (StandardMaterial3D)mat.Duplicate();
+                matDup.EmissionEnabled = false;
+                minst.MaterialOverride = matDup;
             }
         }
 
