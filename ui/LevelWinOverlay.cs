@@ -7,6 +7,10 @@ public partial class LevelWinOverlay : Control
     {
         base._Ready();
 
+        this.FindChildByName<Button>("ReplayLevelButton").Pressed += () => { GetTree().Paused = false; GetTree().ReloadCurrentScene(); };
+        this.FindChildByName<Button>("ContinueButton").Pressed += () => { GetTree().Paused = false; GetTree().ChangeSceneToFile(GetTree().CurrentScene.FindChildByType<LevelBounds>().NextLevel); };
+
+
         var level = GetTree().Root.FindChildByType<Default>();
         var chariot = GetTree().Root.FindChildByType<Chariot>();
 
@@ -27,5 +31,7 @@ public partial class LevelWinOverlay : Control
         this.FindChildByName<Label>("TimeLabel").Text = $"{InGameUi.FormatSeconds((int)level.TimeElapsed)}/{InGameUi.FormatSeconds(level.TimeParSeconds)}";
 
         if (level.TimeElapsed > level.TimeParSeconds) this.FindChildByName<Label>("TimeLabel").Modulate = Colors.Red;
+
+
     }
 }
