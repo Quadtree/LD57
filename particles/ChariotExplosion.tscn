@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxn4wlnvcm4rq"]
+
+[ext_resource type="Texture2D" uid="uid://boj7i8fs40pil" path="res://textures/tricks.png" id="1_1yd74"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_llfyj"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(4, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_max = 10.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7lmm"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_1yd74")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jcuy3"]
+material = SubResource("StandardMaterial3D_r7lmm")
+
+[node name="ChariotExplosion" type="GPUParticles3D"]
+amount = 400
+lifetime = 4.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_llfyj")
+draw_pass_1 = SubResource("QuadMesh_jcuy3")
