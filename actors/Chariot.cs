@@ -220,6 +220,8 @@ public partial class Chariot : Node3D
             GD.Print($"changeInVelocity={changeInVelocity} damage={damage}");
 
             Health -= damage;
+
+            Util.SpawnOneShotSound($"res://sounds/hit{Util.RandInt(0, 4)}.wav", this, MainBodyPos);
         }
 
         PrevVelocity = mb.LinearVelocity;
@@ -274,6 +276,8 @@ public partial class Chariot : Node3D
                     GD.PushWarning(err);
                 }
             });
+
+            Util.SpawnOneShotSound(GD.Load<AudioStream>("res://sounds/death.wav"), this, MainBodyPos);
 
             QueueFree();
         }
@@ -360,6 +364,7 @@ public partial class Chariot : Node3D
 
                                 Util.StartOneShotTimer(this, 0.2f, () =>
                                 {
+                                    Util.SpawnOneShotSound($"res://sounds/hit{Util.RandInt(0, 4)}.wav", this, MainBodyPos);
                                     nearestShark.Slapped();
                                 });
                             }

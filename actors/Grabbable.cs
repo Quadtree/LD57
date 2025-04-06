@@ -32,6 +32,7 @@ public partial class Grabbable : RigidBody3D
 
             if (body is Storage storage)
             {
+                Util.SpawnOneShotSound(GD.Load<AudioStream>("res://sounds/pickup1.wav"), this, GlobalPosition);
                 storage.EnterStorage(this);
             }
         };
