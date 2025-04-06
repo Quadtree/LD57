@@ -1,5 +1,4 @@
 # TODO
-- Final visuals: Enemies
 - Final visuals: Tentacles
 - Final visuals: Pickups and scenery
 - Final visuals: UI
@@ -27,3 +26,4 @@
 - Light coming on and off
 - Clear mission objectives
 - Final visuals: Chariot
+- Final visuals: Enemies
