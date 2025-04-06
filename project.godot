@@ -31,6 +31,7 @@ import/blender/enabled=false
 
 [gui]
 
+theme/custom="uid://ckrw8heo5u15x"
 theme/custom_font="uid://dk23ho75u6ea"
 
 [input]

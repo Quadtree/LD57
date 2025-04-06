@@ -3,6 +3,7 @@
 - Big Head Mod
 - Floating Heads
 - Tentacular
+- Heads Up
 
 
 # TODO
