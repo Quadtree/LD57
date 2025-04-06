@@ -9,6 +9,8 @@
 
 [node name="Default" instance=ExtResource("1_d61pv")]
 StartingDepth = 100.0
+KelpPar = 4
+TimeParSeconds = 120
 
 [node name="Chariot" parent="." index="0"]
 LightEnabled = true
