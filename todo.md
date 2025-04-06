@@ -3,9 +3,9 @@
 - Final visuals: Tentacles
 - Final visuals: Pickups and scenery
 - Final visuals: UI
-- Different light levels at different depths
 
 # Sunday
+- Different light levels at different depths
 - Add in level select
 - Add title screen
 - Add win screen
