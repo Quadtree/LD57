@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8mday3ilynio"]
+[gd_scene load_steps=7 format=3 uid="uid://c8mday3ilynio"]
+
+[ext_resource type="Script" uid="uid://sfn1t3ipdj54" path="res://actors/DebrisOverlay.cs" id="1_j8sy8"]
 
 [sub_resource type="Gradient" id="Gradient_5s4lp"]
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.105882)
+offsets = PackedFloat32Array(0, 0.714286, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.784314, 0.784314, 0.784314, 0, 0, 0.654902, 1, 0.435294)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j8sy8"]
+frequency = 0.1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sqm3h"]
 color_ramp = SubResource("Gradient_5s4lp")
@@ -12,11 +16,13 @@ noise = SubResource("FastNoiseLite_j8sy8")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi1lb"]
 transparency = 1
 albedo_texture = SubResource("NoiseTexture2D_sqm3h")
+uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="QuadMesh" id="QuadMesh_e8gub"]
 material = SubResource("StandardMaterial3D_yi1lb")
 
 [node name="DebrisOverlay" type="Node3D"]
+script = ExtResource("1_j8sy8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0.964978)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0wugrg4vvuqa"]
+[gd_scene load_steps=9 format=3 uid="uid://c0wugrg4vvuqa"]
 
 [ext_resource type="Script" uid="uid://stnp8ekjtqne" path="res://maps/Default.cs" id="1_6jlvn"]
 [ext_resource type="PackedScene" uid="uid://bw57o6gv6dk2t" path="res://actors/Chariot.tscn" id="3_hlrh3"]
 [ext_resource type="Texture2D" uid="uid://d20w7bu3j7wis" path="res://textures/mossy_rock_2.png" id="4_gfcby"]
+[ext_resource type="PackedScene" uid="uid://c8mday3ilynio" path="res://actors/DebrisOverlay.tscn" id="5_o8hxr"]
 [ext_resource type="PackedScene" uid="uid://q6vpblo7vdo7" path="res://ui/InGameUI.tscn" id="5_vnah1"]
 
 [sub_resource type="Environment" id="Environment_hlrh3"]
@@ -49,3 +50,5 @@ environment = SubResource("Environment_hlrh3")
 transform = Transform3D(301.699, 0, 0, 0, 258.328, 0, 0, 0, 1, 0, 0, -57.2537)
 mesh = SubResource("QuadMesh_o8hxr")
 skeleton = NodePath("../WorldEnvironment")
+
+[node name="DebrisOverlay" parent="." instance=ExtResource("5_o8hxr")]
