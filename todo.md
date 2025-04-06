@@ -1,5 +1,4 @@
 # TODO
-- Add jets
 - Add in limit at the top of levels
 - Clear mission objectives
 - Final visuals: Chariot
@@ -23,3 +22,4 @@
 - Add in gem/shark level
 - Add in cave level. make sure the player needs to back up into something
 - Add in currents and sharks level
+- Add jets
