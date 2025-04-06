@@ -62,7 +62,7 @@ public partial class LevelBounds : Node3D
 
     private void WinLevel()
     {
-
+        GetTree().ChangeSceneToFile(NextLevel);
     }
 
     private void SicSuperShark()
