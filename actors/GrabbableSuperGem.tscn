@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyglbocp31he8"]
+
+[ext_resource type="PackedScene" uid="uid://d0toho80wwnv2" path="res://actors/Grabbable.tscn" id="1_upuue"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_upuue"]
+
+[node name="Grabbable" instance=ExtResource("1_upuue")]
+mass = 40.0
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("PrismMesh_upuue")
