@@ -1,11 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnhu43fbkpe31"]
+[gd_scene load_steps=5 format=3 uid="uid://dnhu43fbkpe31"]
 
 [ext_resource type="Script" uid="uid://dd0rj5susgqdr" path="res://actors/LevelBounds.cs" id="1_ooxjq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8pvvq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ooxjq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pvvq"]
 
 [node name="LevelBounds" type="Node3D"]
 script = ExtResource("1_ooxjq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8pvvq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7.125)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ooxjq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8pvvq")
