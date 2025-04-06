@@ -14,6 +14,11 @@ public partial class TitleScreen : Node3D
             var li = i;
             this.FindChildByName<Button>($"Level{i}Button").Pressed += () =>
             {
+                var musicPlayer = new AudioStreamPlayer();
+                GetTree().Root.AddChild(musicPlayer);
+                musicPlayer.Stream = GD.Load<AudioStream>("res://midi/bgm.ogg");
+                musicPlayer.Play();
+
                 GetTree().Paused = false;
                 Util.StartOneShotTimer(this, 1f, () =>
                 {
