@@ -6,6 +6,15 @@ public partial class Default : Node3D
     [Export]
     float StartingDepth;
 
+    [Export]
+    int KelpPar;
+
+    [Export]
+    int SuperGemsPar;
+
+    [Export]
+    int TimeParSeconds;
+
     float YAtStartingDepth;
 
     public float? CurrentDepth
