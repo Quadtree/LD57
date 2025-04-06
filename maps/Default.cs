@@ -57,7 +57,7 @@ public partial class Default : Node3D
 
             this.FindChildByType<DirectionalLight3D>().LightEnergy = lightEnergy;
             this.FindChildByType<WorldEnvironment>().Environment.AmbientLightEnergy = 0.4f * lightEnergy;
-            GD.Print($"Light energy {lightEnergy}");
+            //GD.Print($"Light energy {lightEnergy}");
         }
         else
         {

@@ -1,7 +1,6 @@
 # TODO
 
 # Sunday
-- Different light levels at different depths
 - Add in level select
 - Add title screen
 - Add win screen
@@ -31,3 +30,4 @@
 - Final visuals: Pickups and scenery
 - Final visuals: UI
 - Final visuals: Tentacles
+- Different light levels at different depths
