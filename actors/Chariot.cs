@@ -55,6 +55,11 @@ public partial class Chariot : Node3D
     public static int KelpCollected = 0;
     public static int SuperGemsCollected = 0;
 
+    [Export]
+    Node3D TentacleTarget;
+
+
+
     public override void _Ready()
     {
         base._Ready();
@@ -272,6 +277,17 @@ public partial class Chariot : Node3D
     {
         base._Process(delta);
 
+        // tentacle movement
+        var tentacle = this.FindChildByName<Node3D>("RightArmTentacle");
+
+        if (TentacleTarget != null)
+        {
+            tentacle.LookAt(TentacleTarget.GlobalPosition);
+        }
+        else
+        {
+            
+        }
 
     }
 

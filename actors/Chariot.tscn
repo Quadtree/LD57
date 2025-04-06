@@ -69,11 +69,11 @@ omni_range = 10.0
 [node name="chariot1" parent="MainBody" instance=ExtResource("2_a34f3")]
 transform = Transform3D(-1.81075e-08, 0, -0.414252, 0, 0.414252, 0, 0.414252, 0, -1.81075e-08, 0, -0.264749, 0)
 
-[node name="TentacleBase" type="Node3D" parent="MainBody"]
+[node name="RightArmTentacle" type="Node3D" parent="MainBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780437, 0.355792)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MainBody/TentacleBase"]
-transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.489859, -0.0106903, -0.0240538)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MainBody/RightArmTentacle"]
+transform = Transform3D(-4.37114e-08, 0, -0.2, 0, 0.2, 0, 1, 0, -8.74228e-09, 0.00274369, -0.0106903, 0.417599)
 mesh = SubResource("BoxMesh_6du53")
 skeleton = NodePath("../..")
 
