@@ -248,7 +248,7 @@ public partial class Chariot : Node3D
 
             cam2.Reparent(GetTree().CurrentScene);
 
-            Util.StartOneShotTimer(cam2, 3, () =>
+            Util.StartOneShotTimer(GetTree().CurrentScene, 3, () =>
             {
                 GD.Print("Reloading current scene");
                 GetTree().ReloadCurrentScene();
